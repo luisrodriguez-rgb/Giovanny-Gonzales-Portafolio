@@ -1,0 +1,64 @@
+---
+import { portfolioData } from '../data/portfolioData';
+const { professor } = portfolioData;
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3 style="margin-bottom: 0.75rem; font-size: 1.25rem;">{professor.fullName}</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.95rem;">
+          {professor.title} • {professor.department}
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          {professor.institution} • {professor.location}
+        </p>
+        <p style="font-family: var(--font-serif); font-style: italic; color: var(--text-secondary); font-size: 0.95rem;">
+          "{professor.quote}"
+        </p>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
+          Enlaces Académicos
+        </h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem;">
+          {professor.academicProfiles.map((p) => (
+            <li>
+              <a href={p.url} target="_blank" rel="noopener noreferrer">
+                {p.name} <span style="font-size: 0.75rem; color: var(--text-muted);">({p.badge})</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
+          Contacto & Redes
+        </h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem;">
+          <li>
+            <strong style="color: var(--text-primary);">Institucional:</strong><br />
+            <a href={`mailto:${professor.contact.institutionalEmail}`}>{professor.contact.institutionalEmail}</a>
+          </li>
+          <li>
+            <strong style="color: var(--text-primary);">Personal:</strong><br />
+            <a href={`mailto:${professor.contact.personalEmail}`}>{professor.contact.personalEmail}</a>
+          </li>
+          <li>
+            <a href={professor.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Perfil</a> • 
+            <a href={professor.contact.instagram} target="_blank" rel="noopener noreferrer"> Instagram</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      <p>
+        © {new Date().getFullYear()} Dr. Carlos Giovanni González Espitia. Portafolio académico y científico desarrollado con <strong>Astro</strong> y <strong>pnpm</strong>.
+      </p>
+    </div>
+  </div>
+</footer>

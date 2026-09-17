@@ -1,0 +1,53 @@
+---
+interface Props {
+  code: string;
+  name: string;
+  level: string;
+  semester: string;
+  description: string;
+  topics: readonly string[];
+}
+
+const { code, name, level, semester, description, topics } = Astro.props;
+---
+
+<div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+  <div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+      <span class="badge badge-status font-mono">{code}</span>
+      <span class="badge badge-q2">{level}</span>
+    </div>
+
+    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+      {name}
+    </h3>
+
+    <p style="font-size: 0.85rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 1rem;">
+      Frecuencia: {semester}
+    </p>
+
+    <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+      {description}
+    </p>
+
+    <div>
+      <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">
+        Módulos & Temas Clave:
+      </h4>
+      <ul style="list-style-type: disc; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+        {topics.map((t) => (
+          <li>{t}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+    <span style="font-size: 0.82rem; color: var(--text-muted);">
+      Universidad Icesi
+    </span>
+    <span class="badge badge-q1" style="font-size: 0.75rem;">
+      Stata & R
+    </span>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const navItems = [
+  { href: '/', label: 'Inicio' },
+  { href: '/research', label: 'Investigación & Publicaciones' },
+  { href: '/teaching', label: 'Docencia' },
+  { href: '/students', label: 'Tesistas & Asesorías' },
+  { href: '/r-lab', label: 'Laboratorio R' },
+  { href: '/resources', label: 'Recursos' },
+];
+---
+
+<header class="navbar">
+  <div class="container navbar-inner">
+    <a href="/" class="navbar-brand">
+      <span>Dr. Giovanni González</span>
+      <span class="brand-badge">Icesi</span>
+    </a>
+
+    <nav>
+      <ul class="navbar-links">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`navbar-link ${pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) ? 'active' : ''}`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="navbar-actions">
+      <ThemeToggle />
+      <a href="/research#working-papers" class="btn btn-primary btn-sm" style="display: none; @media(min-width: 900px){ display: inline-flex; }">
+        Working Papers
+      </a>
+    </div>
+  </div>
+</header>
