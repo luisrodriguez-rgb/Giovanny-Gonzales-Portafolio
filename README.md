@@ -54,10 +54,14 @@ El proyecto renueva y moderniza la presencia digital del docente a partir de la 
 |   |   `-- students.astro            # Redireccion canonica a /research#students
 |   `-- styles/
 |       `-- global.css                # Sistema de diseno y tokens CSS de alto contraste
-|-- data_raw/                         # Respaldo de datos extraidos del sitio original
-|   |-- markdown/                     # Transcripcion en Markdown de las 10 paginas
-|   `-- site_data.json                # Dump estructurado en JSON
-|-- scrape_giovanni.py                # Pipeline autonomo de scraping respetuoso en Python
+|-- tools/                            # Herramientas de extraccion y respaldos
+|   |-- data_raw/                     # Respaldo de datos e imagenes del sitio original
+|   |   |-- images/                   # Fotografias originales extraidas
+|   |   |-- markdown/                 # Transcripcion en Markdown de las 10 paginas
+|   |   `-- site_data.json            # Dump estructurado en JSON
+|   |-- generate_dataset.py           # Compilador de datos a TypeScript
+|   |-- scrape_giovanni.py            # Pipeline autonomo de scraping respetuoso en Python
+|   `-- README.md                     # Documentacion del directorio de herramientas
 |-- astro.config.mjs                  # Configuracion del compilador Astro
 |-- package.json                      # Dependencias y scripts
 `-- tsconfig.json                     # Configuracion estricta de TypeScript
@@ -91,7 +95,7 @@ pnpm run preview
 
 ## 4. Pipeline de Datos y Extraccion
 
-Los contenidos y registros bibliograficos fueron recopilados mediante `scrape_giovanni.py`, el cual implementa tecnicas de rastreo respetuoso (solicitudes con User-Agent formal, delays de cortesia de 1 segundo y almacenamiento estructurado):
+Los contenidos y registros bibliograficos fueron recopilados mediante `tools/scrape_giovanni.py`, el cual implementa tecnicas de rastreo respetuoso (solicitudes con User-Agent formal, delays de cortesia de 1 segundo y almacenamiento estructurado):
 
 1.  `/home` - Perfil biografico, nombramiento docente, grados academicos y afiliacion Icesi.
 2.  `/current-research` - Proyectos de investigacion activos y working papers.
