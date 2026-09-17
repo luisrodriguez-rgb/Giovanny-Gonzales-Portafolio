@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { portfolioData } from '../data/portfolioData';
 import TeachingCard from '../components/TeachingCard.astro';
+import InstitutionLogo from '../components/InstitutionLogo.astro';
 
 const { courses, professor } = portfolioData;
 ---
@@ -74,11 +75,19 @@ const { courses, professor } = portfolioData;
           <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; font-size: 0.98rem;">
             Cada sesión combina la deducción teórica de los teoremas y estimadores con laboratorios empíricos usando bases de datos públicas de Colombia (GEIH del DANE, Saber Pro del ICFES, registros de la Policía Nacional y encuestas de empleo formal/informal).
           </p>
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <span class="badge badge-status">Stata 18</span>
-            <span class="badge badge-status">RStudio / Quarto</span>
-            <span class="badge badge-status">Python (Spatial Econometrics)</span>
-            <span class="badge badge-status">Overleaf / LaTeX</span>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+            <span class="badge badge-status" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <InstitutionLogo name="stata" size={16} />
+              <span>Stata 18</span>
+            </span>
+            <span class="badge badge-status" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <InstitutionLogo name="r" size={16} />
+              <span>RStudio / Quarto</span>
+            </span>
+            <span class="badge badge-status" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <InstitutionLogo name="python" size={16} />
+              <span>Python (Spatial Analysis)</span>
+            </span>
           </div>
         </div>
 

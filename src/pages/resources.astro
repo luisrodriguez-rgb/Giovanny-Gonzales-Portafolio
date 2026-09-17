@@ -2,41 +2,48 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { portfolioData } from '../data/portfolioData';
 
+import InstitutionLogo from '../components/InstitutionLogo.astro';
+
 const { professor } = portfolioData;
 
 const databaseLinks = [
   {
     name: "DANE - Gran Encuesta Integrada de Hogares (GEIH)",
     url: "https://www.dane.gov.co/",
-    desc: "Microdatos oficiales sobre mercado laboral, empleo, informalidad y pobreza en Colombia."
+    desc: "Microdatos oficiales sobre mercado laboral, empleo, informalidad y pobreza en Colombia.",
+    logo: "icesi"
   },
   {
     name: "Banco de la República - Estadísticas Económicas",
     url: "https://www.banrep.gov.co/es/estadisticas",
-    desc: "Series de tiempo macroeconómicas, agregados monetarios, inflación y tasa de cambio."
+    desc: "Series de tiempo macroeconómicas, agregados monetarios, inflación y tasa de cambio.",
+    logo: "banrep"
   },
   {
     name: "ICFES - Bases de Datos Saber Pro y Saber 11",
     url: "https://www.icfes.gov.co/",
-    desc: "Información estandarizada de calidad educativa y rendimiento académico en educación básica y superior."
+    desc: "Información estandarizada de calidad educativa y rendimiento académico en educación básica y superior.",
+    logo: "minciencias"
   },
   {
     name: "FRED - Federal Reserve Economic Data",
     url: "https://fred.stlouisfed.org/",
-    desc: "Cientos de miles de series macroeconómicas y financieras globales."
+    desc: "Cientos de miles de series macroeconómicas y financieras globales.",
+    logo: "repec"
   },
   {
     name: "World Bank Open Data",
     url: "https://data.worldbank.org/",
-    desc: "Indicadores de desarrollo mundial, capital humano y desigualdad socioeconómica."
+    desc: "Indicadores de desarrollo mundial, capital humano y desigualdad socioeconómica.",
+    logo: "scholar"
   }
 ];
 
 const softwareTools = [
-  { name: "Stata", url: "https://www.stata.com/", desc: "Software líder para análisis econométrico y datos de panel." },
-  { name: "R Project & RStudio (Posit)", url: "https://posit.co/download/rstudio-desktop/", desc: "Entorno interactivo para computación estadística y visualización avanzada." },
-  { name: "Python", url: "https://www.python.org/", desc: "Ciencia de datos, web scraping y econometría espacial." },
-  { name: "Overleaf / LaTeX", url: "https://www.overleaf.com/", desc: "Redacción científica y tipografía matemática profesional." }
+  { name: "Stata", logo: "stata", url: "https://www.stata.com/", desc: "Software líder para análisis econométrico y datos de panel." },
+  { name: "R Project & RStudio (Posit)", logo: "r", url: "https://posit.co/download/rstudio-desktop/", desc: "Entorno interactivo para computación estadística y visualización avanzada." },
+  { name: "Python", logo: "python", url: "https://www.python.org/", desc: "Ciencia de datos, web scraping y econometría espacial." },
+  { name: "Overleaf / LaTeX", logo: "scholar", url: "https://www.overleaf.com/", desc: "Redacción científica y tipografía matemática profesional." }
 ];
 ---
 
@@ -64,19 +71,22 @@ const softwareTools = [
 
       <div class="grid-2">
         {databaseLinks.map((db) => (
-          <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
-                {db.name}
-              </h3>
-              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-                {db.desc}
-              </p>
-            </div>
-            <div>
-              <a href={db.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                Acceder al Repositorio →
-              </a>
+          <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+            <InstitutionLogo name={db.logo} size={36} />
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--text-primary);">
+                  {db.name}
+                </h3>
+                <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                  {db.desc}
+                </p>
+              </div>
+              <div>
+                <a href={db.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  Acceder al Repositorio →
+                </a>
+              </div>
             </div>
           </div>
         ))}
@@ -92,16 +102,19 @@ const softwareTools = [
 
       <div class="grid-2">
         {softwareTools.map((tool) => (
-          <div class="card">
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-primary);">
-              {tool.name}
-            </h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              {tool.desc}
-            </p>
-            <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-              Descargar / Visitar Sitio Oficial
-            </a>
+          <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+            <InstitutionLogo name={tool.logo} size={36} />
+            <div style="flex: 1;">
+              <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--text-primary);">
+                {tool.name}
+              </h3>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                {tool.desc}
+              </p>
+              <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Descargar / Visitar Sitio Oficial →
+              </a>
+            </div>
           </div>
         ))}
       </div>

@@ -2,54 +2,79 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { portfolioData } from '../data/portfolioData';
 import PublicationCard from '../components/PublicationCard.astro';
+import InstitutionLogo from '../components/InstitutionLogo.astro';
 
-const { professor, publications, books, workingPapers, courses } = portfolioData;
+const { professor, publications, books, courses } = portfolioData;
 const featuredPublications = publications.slice(0, 3);
 ---
 
 <BaseLayout
-  title={`${professor.fullName} | Profesor Titular de Economía`}
-  description={professor.bio}
+  title={`${professor.fullName} | Profesor Titular de Economía - Universidad Icesi`}
+  description={professor.bio.es}
 >
-  <!-- Hero Section -->
+  <!-- Hero Section Refinado con Proporción Natural y Bilingüe -->
   <section class="hero">
     <div class="container hero-grid">
-      <div class="hero-avatar-wrapper">
-        <img
-          src={professor.avatar}
-          alt={professor.fullName}
-          class="hero-avatar"
-          width="320"
-          height="426"
-          loading="eager"
-        />
-        <div class="hero-avatar-badge">
-          <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
-          Investigador Activo
+      <!-- Columna Foto de Perfil Oficial -->
+      <aside class="hero-profile-card">
+        <div class="hero-avatar-frame">
+          <img
+            src={professor.avatar}
+            alt={professor.fullName}
+            class="hero-avatar"
+            width="210"
+            height="290"
+            loading="eager"
+          />
         </div>
-      </div>
+        <div class="hero-profile-caption">
+          <h2>Carlos Giovanni González</h2>
+          <p>Profesor Titular • Ph.D. en Economía</p>
+          <div style="margin-top: 0.75rem; width: 100%;">
+            <a
+              href={professor.contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-linkedin btn-sm"
+              style="width: 100%;"
+            >
+              <InstitutionLogo name="linkedin" size={16} />
+              <span>Conectar en LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </aside>
 
+      <!-- Columna Contenido Principal -->
       <div class="hero-content">
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-          <span class="brand-badge">Universidad Icesi</span>
-          <span class="badge badge-q1">MinCiencias A1</span>
-          <span class="badge badge-q2">AACSB & AMBA Accredited</span>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.85rem; align-items: center;">
+          <span class="badge badge-q2" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+            <InstitutionLogo name="icesi" size={14} />
+            <span>Universidad Icesi</span>
+          </span>
+          <span class="badge badge-q1" data-lang-es="Grupo MinCiencias A1" data-lang-en="MinCiencias A1 Group">
+            Grupo MinCiencias A1
+          </span>
+          <span class="badge badge-status" data-lang-es="Acreditado AACSB & AMBA" data-lang-en="AACSB & AMBA Accredited">
+            Acreditado AACSB & AMBA
+          </span>
         </div>
 
         <h1 class="font-serif">
           {professor.fullName}
         </h1>
 
-        <p class="hero-title">
-          {professor.title}
+        <p class="hero-title" data-lang-es={professor.title.es} data-lang-en={professor.title.en}>
+          {professor.title.es}
         </p>
 
         <p class="hero-institution">
-          {professor.department} • <strong>{professor.institution}</strong>, {professor.location}
+          <span data-lang-es={professor.department.es} data-lang-en={professor.department.en}>{professor.department.es}</span> • 
+          <strong>{professor.institution}</strong>, {professor.location}
         </p>
 
-        <p class="hero-bio">
-          {professor.bio}
+        <p class="hero-bio" data-lang-es={professor.bio.es} data-lang-en={professor.bio.en}>
+          {professor.bio.es}
         </p>
 
         <div class="quote-box">
@@ -58,61 +83,79 @@ const featuredPublications = publications.slice(0, 3);
 
         <div class="hero-actions">
           <a href="/research" class="btn btn-primary">
-            Ver Investigaciones & Papers
+            <span data-lang-es="Ver Investigaciones & Publicaciones" data-lang-en="View Research & Publications">
+              Ver Investigaciones & Publicaciones
+            </span>
           </a>
           <a href="/teaching" class="btn btn-outline">
-            Cursos & Syllabi
+            <span data-lang-es="Cursos & Syllabi" data-lang-en="Teaching & Syllabi">
+              Cursos & Syllabi
+            </span>
           </a>
           <a href={`mailto:${professor.contact.institutionalEmail}`} class="btn btn-outline">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            Contactar
+            <span data-lang-es="Contactar" data-lang-en="Contact">
+              Contactar
+            </span>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats Ribbon -->
+  <!-- Ribbon de Métricas Académicas -->
   <section class="container">
     <div class="stats-ribbon">
       <div class="stat-item">
         <div class="stat-number">~500</div>
-        <div class="stat-label">Horas de Docencia / Año</div>
+        <div class="stat-label" data-lang-es="Horas de Docencia / Año" data-lang-en="Teaching Hours / Year">
+          Horas de Docencia / Año
+        </div>
       </div>
       <div class="stat-item">
         <div class="stat-number">7+</div>
-        <div class="stat-label">Cursos Anuales</div>
+        <div class="stat-label" data-lang-es="Cursos Anuales" data-lang-en="Annual Courses">
+          Cursos Anuales
+        </div>
       </div>
       <div class="stat-item">
         <div class="stat-number">4</div>
-        <div class="stat-label">Líneas de Investigación</div>
+        <div class="stat-label" data-lang-es="Líneas de Investigación" data-lang-en="Research Fields">
+          Líneas de Investigación
+        </div>
       </div>
       <div class="stat-item">
         <div class="stat-number">Top 100</div>
-        <div class="stat-label">RePEc 10A Colombia (2018)</div>
+        <div class="stat-label" data-lang-es="RePEc 10A Colombia" data-lang-en="RePEc 10A Colombia">
+          RePEc 10A Colombia
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Research & Featured Publications Section -->
-  <section class="container" style="padding: 2rem 1.5rem 4rem;">
-    <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+  <!-- Publicaciones Destacadas -->
+  <section class="container" style="padding: 1.5rem 1.5rem 3.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
       <div>
-        <span class="section-tag">Producción Científica</span>
-        <h2 class="section-title font-serif">Publicaciones Destacadas</h2>
-        <p class="section-subtitle">
+        <span class="badge badge-q2" style="margin-bottom: 0.5rem;" data-lang-es="Producción Científica" data-lang-en="Scientific Output">
+          Producción Científica
+        </span>
+        <h2 class="font-serif" style="font-size: 2.2rem;" data-lang-es="Publicaciones Destacadas" data-lang-en="Featured Publications">
+          Publicaciones Destacadas
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1rem;" data-lang-es="Contribución al debate y evaluación de políticas públicas con rigor econométrico." data-lang-en="Contributing to public policy evaluation with econometric rigor.">
           Contribución al debate y evaluación de políticas públicas con rigor econométrico.
         </p>
       </div>
       <a href="/research" class="btn btn-outline btn-sm">
-        Ver Todas las Publicaciones →
+        <span data-lang-es="Ver Catálogo Completo →" data-lang-en="View All Publications →">Ver Catálogo Completo →</span>
       </a>
     </div>
 
-    <div style="margin-top: 2rem;">
+    <div>
       {featuredPublications.map((pub) => (
         <PublicationCard
           id={pub.id}
@@ -131,39 +174,43 @@ const featuredPublications = publications.slice(0, 3);
     </div>
   </section>
 
-  <!-- Books Banner -->
-  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 4rem 0;">
+  <!-- Libros Guía -->
+  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 3.5rem 0;">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Libros Académicos</span>
-        <h2 class="section-title font-serif">Libros & Textos Guía</h2>
-        <p class="section-subtitle">
-          Manuales y monografías para la formación macroeconómica y econométrica en América Latina.
+      <div style="margin-bottom: 2rem;">
+        <span class="badge badge-q3" style="margin-bottom: 0.5rem;" data-lang-es="Libros de Texto" data-lang-en="Textbooks">
+          Libros de Texto
+        </span>
+        <h2 class="font-serif" style="font-size: 2rem;" data-lang-es="Libros & Monografías" data-lang-en="Books & Monographs">
+          Libros & Monografías
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.98rem;" data-lang-es="Textos guía adoptados en programas de pregrado, posgrado y MBA en América Latina." data-lang-en="Core textbooks adopted across undergraduate, graduate, and MBA programs in Latin America.">
+          Textos guía adoptados en programas de pregrado, posgrado y MBA en América Latina.
         </p>
       </div>
 
-      <div class="grid-2" style="margin-top: 2rem;">
+      <div class="grid-2">
         {books.map((book) => (
           <div class="card card-highlight">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
-              <span class="badge badge-q1">{book.year}</span>
-              <span class="badge badge-status">{book.status}</span>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span class="badge badge-status font-mono">{book.year}</span>
+              <span class="badge badge-q1">{book.status}</span>
             </div>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-primary);">
               {book.title}
             </h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.4rem;">
               <strong>Autores:</strong> {book.authors.join(', ')}
             </p>
-            <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin-bottom: 1rem;">
+            <p style="font-size: 0.82rem; font-style: italic; color: var(--text-muted); margin-bottom: 0.85rem;">
               {book.publisher}
             </p>
-            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
               {book.description}
             </p>
             {book.link && (
               <a href={book.link} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                Ver en Editorial Ecoe →
+                <span data-lang-es="Ver en Editorial Ecoe →" data-lang-en="View at Ecoe Publishing →">Ver en Editorial Ecoe →</span>
               </a>
             )}
           </div>
@@ -172,54 +219,73 @@ const featuredPublications = publications.slice(0, 3);
     </div>
   </section>
 
-  <!-- Education & Career Timeline Section -->
-  <section class="container" style="padding: 4.5rem 1.5rem;">
+  <!-- Formación & Trayectoria Profesional con Logotipos -->
+  <section class="container" style="padding: 4rem 1.5rem;">
     <div class="grid-2">
-      <!-- Education -->
+      <!-- Educación -->
       <div>
-        <div class="section-header">
-          <span class="section-tag">Formación Académica</span>
-          <h2 class="section-title font-serif">Educación</h2>
+        <div style="margin-bottom: 1.75rem;">
+          <span class="badge badge-q2" style="margin-bottom: 0.5rem;" data-lang-es="Títulos Académicos" data-lang-en="Academic Degrees">
+            Títulos Académicos
+          </span>
+          <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Educación" data-lang-en="Education">
+            Educación
+          </h2>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
           {professor.education.map((edu) => (
-            <div class="card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-                <h3 style="font-size: 1.15rem; color: var(--text-primary);">{edu.degree}</h3>
-                <span class="badge badge-status">{edu.year}</span>
+            <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+              {edu.institution.includes('Alcalá') && <InstitutionLogo name="uah" size={38} />}
+              {edu.institution.includes('Autónoma') && <InstitutionLogo name="uao" size={38} />}
+              {!edu.institution.includes('Alcalá') && !edu.institution.includes('Autónoma') && <InstitutionLogo name="icesi" size={38} />}
+
+              <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+                  <h3 style="font-size: 1.1rem; color: var(--text-primary);">{edu.degree}</h3>
+                  <span class="badge badge-status font-mono" style="font-size: 0.72rem;">{edu.year}</span>
+                </div>
+                <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.92rem; margin-bottom: 0.2rem;">
+                  {edu.institution}
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                  {edu.details}
+                </p>
               </div>
-              <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.95rem; margin-bottom: 0.25rem;">
-                {edu.institution}
-              </p>
-              <p style="font-size: 0.88rem; color: var(--text-secondary);">
-                {edu.details}
-              </p>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- Experience -->
+      <!-- Trayectoria -->
       <div>
-        <div class="section-header">
-          <span class="section-tag">Trayectoria</span>
-          <h2 class="section-title font-serif">Posiciones & Docencia</h2>
+        <div style="margin-bottom: 1.75rem;">
+          <span class="badge badge-q3" style="margin-bottom: 0.5rem;" data-lang-es="Cargos Universitarios" data-lang-en="University Roles">
+            Cargos Universitarios
+          </span>
+          <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Posiciones Académicas" data-lang-en="Academic Positions">
+            Posiciones Académicas
+          </h2>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
           {professor.experience.slice(0, 4).map((exp) => (
-            <div class="card">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-                <h3 style="font-size: 1.15rem; color: var(--text-primary);">{exp.role}</h3>
-                <span class="badge badge-q2">{exp.period}</span>
+            <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+              {exp.institution.includes('Icesi') && <InstitutionLogo name="icesi" size={38} />}
+              {!exp.institution.includes('Icesi') && <InstitutionLogo name="uah" size={38} />}
+
+              <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem;">
+                  <h3 style="font-size: 1.1rem; color: var(--text-primary);">{exp.role}</h3>
+                  <span class="badge badge-status font-mono" style="font-size: 0.72rem;">{exp.period}</span>
+                </div>
+                <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.92rem; margin-bottom: 0.2rem;">
+                  {exp.institution}
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                  {exp.description}
+                </p>
               </div>
-              <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.95rem; margin-bottom: 0.25rem;">
-                {exp.institution}
-              </p>
-              <p style="font-size: 0.88rem; color: var(--text-secondary);">
-                {exp.description}
-              </p>
             </div>
           ))}
         </div>
@@ -227,34 +293,42 @@ const featuredPublications = publications.slice(0, 3);
     </div>
   </section>
 
-  <!-- Community & Students Showcase -->
-  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 4.5rem 0;">
+  <!-- Comunidad & Fotografía con Estudiantes -->
+  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 4rem 0;">
     <div class="container">
       <div class="grid-2" style="align-items: center; gap: 3rem;">
         <div>
-          <span class="section-tag">Comunidad & Tutoría</span>
-          <h2 class="section-title font-serif">Formando Futuros Economistas</h2>
-          <p style="color: var(--text-secondary); line-height: 1.7; margin: 1.25rem 0 1.75rem; font-size: 1.05rem;">
-            Acompañamiento cercano en pregrado, maestría y doctorado. Asesoría metodológica rigurosa para tesis de investigación empírica aplicadas a los grandes retos de Colombia y América Latina.
+          <span class="badge badge-q1" style="margin-bottom: 0.65rem;" data-lang-es="Mentoría de Excelencia" data-lang-en="Mentorship Excellence">
+            Mentoría de Excelencia
+          </span>
+          <h2 class="font-serif" style="font-size: 2.1rem; margin-bottom: 1rem;" data-lang-es="Formando Futuros Economistas" data-lang-en="Educating Future Economists">
+            Formando Futuros Economistas
+          </h2>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.02rem; margin-bottom: 1.75rem;" data-lang-es="Acompañamiento cercano en pregrado, maestría y doctorado. Asesoría metodológica rigurosa para tesis de investigación empírica aplicadas a los grandes retos socioeconómicos de Colombia." data-lang-en="Close advising across undergraduate, Master's, and PhD levels. Rigorous methodological guidance for empirical research theses addressing Colombia's socio-economic challenges.">
+            Acompañamiento cercano en pregrado, maestría y doctorado. Asesoría metodológica rigurosa para tesis de investigación empírica aplicadas a los grandes retos socioeconómicos de Colombia.
           </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <a href="/students" class="btn btn-primary">
-              Directorio de Tesistas Asesorados
+              <span data-lang-es="Directorio de Tesistas Asesorados" data-lang-en="Directory of Advised Students">Directorio de Tesistas Asesorados</span>
             </a>
             <a href="/teaching" class="btn btn-outline">
-              Explorar Metodología Docente
+              <span data-lang-es="Metodología Docente" data-lang-en="Teaching Methodology">Metodología Docente</span>
             </a>
           </div>
         </div>
-        <div>
-          <img
-            src={professor.classroomImage}
-            alt="Profesor Carlos Giovanni González con sus estudiantes de la Universidad Icesi"
-            style="width: 100%; border-radius: var(--radius-xl); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);"
-            loading="lazy"
-          />
+
+        <!-- Marco Fotográfico Proporcionado -->
+        <div class="card" style="padding: 0.75rem; border-radius: var(--radius-lg); background: var(--bg-card); max-width: 540px; margin: 0 auto; box-shadow: var(--shadow-md);">
+          <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-subtle);">
+            <img
+              src={professor.classroomImage}
+              alt="Profesor Carlos Giovanni González con estudiantes en el aula"
+              style="width: 100%; height: auto; display: block;"
+              loading="lazy"
+            />
+          </div>
           <p style="font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem; font-style: italic;">
-            Prof. Carlos Giovanni González Espitia junto a una de sus cohortes de estudiantes en la Universidad Icesi.
+            Prof. Carlos Giovanni González Espitia con una cohorte de estudiantes de la Universidad Icesi.
           </p>
         </div>
       </div>
