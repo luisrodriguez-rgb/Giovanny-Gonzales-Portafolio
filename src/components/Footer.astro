@@ -1,5 +1,6 @@
 ---
 import { portfolioData } from '../data/portfolioData';
+import InstitutionLogo from './InstitutionLogo.astro';
 const { professor } = portfolioData;
 ---
 
@@ -7,49 +8,73 @@ const { professor } = portfolioData;
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h3 style="margin-bottom: 0.75rem; font-size: 1.25rem;">{professor.fullName}</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.95rem;">
-          {professor.title} • {professor.department}
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <InstitutionLogo name="icesi" size={32} />
+          <h3 style="font-size: 1.25rem; margin-bottom: 0;">{professor.fullName}</h3>
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 0.35rem; font-size: 0.95rem;">
+          <span data-lang-es={professor.title.es} data-lang-en={professor.title.en}>{professor.title.es}</span> • 
+          <span data-lang-es={professor.department.es} data-lang-en={professor.department.en}>{professor.department.es}</span>
         </p>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
           {professor.institution} • {professor.location}
         </p>
-        <p style="font-family: var(--font-serif); font-style: italic; color: var(--text-secondary); font-size: 0.95rem;">
+        <p style="font-family: var(--font-serif); font-style: italic; color: var(--text-secondary); font-size: 0.95rem; border-left: 2px solid var(--accent-primary); padding-left: 0.75rem;">
           "{professor.quote}"
         </p>
       </div>
 
       <div>
-        <h4 style="margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
-          Enlaces Académicos
+        <h4 style="margin-bottom: 1rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
+          <span data-lang-es="Perfiles Académicos" data-lang-en="Academic Profiles">Perfiles Académicos</span>
         </h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem;">
-          {professor.academicProfiles.map((p) => (
-            <li>
-              <a href={p.url} target="_blank" rel="noopener noreferrer">
-                {p.name} <span style="font-size: 0.75rem; color: var(--text-muted);">({p.badge})</span>
-              </a>
-            </li>
-          ))}
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.92rem;">
+          <li>
+            <a href={professor.contact.googleScholar} target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem;">
+              <InstitutionLogo name="scholar" size={20} />
+              <span>Google Scholar</span>
+            </a>
+          </li>
+          <li>
+            <a href={professor.contact.repec} target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem;">
+              <InstitutionLogo name="repec" size={20} />
+              <span>IDEAS / RePEc (Top 100)</span>
+            </a>
+          </li>
+          <li>
+            <a href={professor.contact.cvlac} target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem;">
+              <InstitutionLogo name="minciencias" size={20} />
+              <span>CvLAC MinCiencias</span>
+            </a>
+          </li>
+          <li>
+            <a href={professor.contact.banrep} target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem;">
+              <InstitutionLogo name="banrep" size={20} />
+              <span>Red Investigadores BanRep</span>
+            </a>
+          </li>
         </ul>
       </div>
 
       <div>
-        <h4 style="margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
-          Contacto & Redes
+        <h4 style="margin-bottom: 1rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">
+          <span data-lang-es="Contacto Directo" data-lang-en="Direct Contact">Contacto Directo</span>
         </h4>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem;">
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.92rem;">
           <li>
-            <strong style="color: var(--text-primary);">Institucional:</strong><br />
-            <a href={`mailto:${professor.contact.institutionalEmail}`}>{professor.contact.institutionalEmail}</a>
+            <strong style="color: var(--text-primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; display: block;">Institucional:</strong>
+            <a href={`mailto:${professor.contact.institutionalEmail}`} style="font-family: var(--font-mono); font-size: 0.88rem;">{professor.contact.institutionalEmail}</a>
           </li>
           <li>
-            <strong style="color: var(--text-primary);">Personal:</strong><br />
-            <a href={`mailto:${professor.contact.personalEmail}`}>{professor.contact.personalEmail}</a>
+            <strong style="color: var(--text-primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; display: block;">Personal:</strong>
+            <a href={`mailto:${professor.contact.personalEmail}`} style="font-family: var(--font-mono); font-size: 0.88rem;">{professor.contact.personalEmail}</a>
           </li>
-          <li>
-            <a href={professor.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Perfil</a> • 
-            <a href={professor.contact.instagram} target="_blank" rel="noopener noreferrer"> Instagram</a>
+          <li style="margin-top: 0.5rem;">
+            <a href={professor.contact.linkedin} target="_blank" rel="noopener noreferrer" class="btn btn-linkedin btn-sm" style="width: 100%;">
+              <InstitutionLogo name="linkedin" size={16} />
+              <span>Perfil Oficial LinkedIn</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -57,7 +82,7 @@ const { professor } = portfolioData;
 
     <div class="footer-copy">
       <p>
-        © {new Date().getFullYear()} Dr. Carlos Giovanni González Espitia. Portafolio académico y científico desarrollado con <strong>Astro</strong> y <strong>pnpm</strong>.
+        © {new Date().getFullYear()} Dr. Carlos Giovanni González Espitia. Departamento de Economía, Universidad Icesi. Cali, Colombia.
       </p>
     </div>
   </div>

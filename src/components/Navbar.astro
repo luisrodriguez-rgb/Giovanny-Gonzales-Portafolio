@@ -1,23 +1,25 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageToggle from './LanguageToggle.astro';
+import InstitutionLogo from './InstitutionLogo.astro';
 
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
-  { href: '/', label: 'Inicio' },
-  { href: '/research', label: 'Investigación & Publicaciones' },
-  { href: '/teaching', label: 'Docencia' },
-  { href: '/students', label: 'Tesistas & Asesorías' },
-  { href: '/r-lab', label: 'Laboratorio R' },
-  { href: '/resources', label: 'Recursos' },
+  { href: '/', labelEs: 'Inicio', labelEn: 'Home' },
+  { href: '/research', labelEs: 'Investigación & Publicaciones', labelEn: 'Research & Publications' },
+  { href: '/teaching', labelEs: 'Docencia', labelEn: 'Teaching' },
+  { href: '/students', labelEs: 'Tesistas & Asesorías', labelEn: 'Students & Advising' },
+  { href: '/r-lab', labelEs: 'Laboratorio R', labelEn: 'R & Stata Lab' },
+  { href: '/resources', labelEs: 'Recursos', labelEn: 'Resources' },
 ];
 ---
 
 <header class="navbar">
   <div class="container navbar-inner">
     <a href="/" class="navbar-brand">
+      <InstitutionLogo name="icesi" size={28} />
       <span>Dr. Giovanni González</span>
-      <span class="brand-badge">Icesi</span>
     </a>
 
     <nav>
@@ -28,7 +30,9 @@ const navItems = [
               href={item.href}
               class={`navbar-link ${pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href)) ? 'active' : ''}`}
             >
-              {item.label}
+              <span data-lang-es={item.labelEs} data-lang-en={item.labelEn}>
+                {item.labelEs}
+              </span>
             </a>
           </li>
         ))}
@@ -36,10 +40,8 @@ const navItems = [
     </nav>
 
     <div class="navbar-actions">
+      <LanguageToggle />
       <ThemeToggle />
-      <a href="/research#working-papers" class="btn btn-primary btn-sm" style="display: none; @media(min-width: 900px){ display: inline-flex; }">
-        Working Papers
-      </a>
     </div>
   </div>
 </header>

@@ -102,7 +102,7 @@ const bibtex = `@article{gonzalez_${id}_${year},
           try {
             await navigator.clipboard.writeText(bibtex);
             const originalText = btn.innerHTML;
-            btn.innerHTML = `✓ ¡Copiado!`;
+            btn.innerHTML = `Copiado al portapapeles`;
             setTimeout(() => {
               btn.innerHTML = originalText;
             }, 2000);

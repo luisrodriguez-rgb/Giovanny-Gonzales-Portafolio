@@ -1,0 +1,104 @@
+---
+// LanguageToggle.astro - Alternador de idioma ES / EN
+---
+
+<div class="lang-toggle-wrap" role="group" aria-label="Seleccionar idioma">
+  <button type="button" class="lang-btn active" data-lang="es" title="Cambiar a Español">
+    ES
+  </button>
+  <span class="lang-divider">/</span>
+  <button type="button" class="lang-btn" data-lang="en" title="Switch to English">
+    EN
+  </button>
+</div>
+
+<style>
+  .lang-toggle-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    font-family: var(--font-sans);
+    font-weight: 700;
+  }
+
+  .lang-btn:hover {
+    color: var(--text-primary);
+  }
+
+  .lang-btn.active {
+    color: var(--accent-primary);
+    background: var(--accent-soft);
+  }
+
+  .lang-divider {
+    color: var(--border-focus);
+    font-size: 0.75rem;
+    user-select: none;
+  }
+</style>
+
+<script>
+  function setupLanguageToggle() {
+    const savedLang = localStorage.getItem('site_lang') || 'es';
+    applyLanguage(savedLang);
+
+    const buttons = document.querySelectorAll('.lang-btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang') || 'es';
+        applyLanguage(lang);
+      });
+    });
+  }
+
+  function applyLanguage(lang: string) {
+    localStorage.setItem('site_lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+
+    // Update active button state
+    document.querySelectorAll('.lang-btn').forEach((b) => {
+      if (b.getAttribute('data-lang') === lang) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    // Toggle visibility of multilingual elements
+    document.querySelectorAll('[data-lang-es]').forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      if (lang === 'es') {
+        htmlEl.textContent = htmlEl.getAttribute('data-lang-es') || htmlEl.textContent;
+      } else {
+        htmlEl.textContent = htmlEl.getAttribute('data-lang-en') || htmlEl.textContent;
+      }
+    });
+
+    // Toggle elements with specific language block classes
+    document.querySelectorAll('.lang-block-es').forEach((el) => {
+      (el as HTMLElement).style.display = lang === 'es' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-block-en').forEach((el) => {
+      (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+    });
+  }
+
+  setupLanguageToggle();
+  document.addEventListener('astro:after-swap', setupLanguageToggle);
+</script>

@@ -1,0 +1,103 @@
+---
+// Componente de logotipos e insignias vectoriales SVG de alta precisión para universidades e instituciones
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 32, class: className = '' } = Astro.props;
+---
+
+<span class={`institution-logo-wrap ${className}`} style={`width: ${size}px; height: ${size}px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;`}>
+  {name === 'icesi' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Universidad Icesi">
+      <rect width="48" height="48" rx="8" fill="#1E6C93"/>
+      <path d="M12 14H18V34H12V14Z" fill="#FFFFFF"/>
+      <path d="M22 20C22 16.6863 24.6863 14 28 14C31.3137 14 34 16.6863 34 20H28C28 20 28 28 28 28C28 28 34 28 34 28C34 31.3137 31.3137 34 28 34C24.6863 34 22 31.3137 22 28V20Z" fill="#FFFFFF"/>
+      <circle cx="36" cy="17" r="3" fill="#F59E0B"/>
+    </svg>
+  )}
+
+  {name === 'uah' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Universidad de Alcalá">
+      <rect width="48" height="48" rx="8" fill="#8B1E1E"/>
+      <path d="M24 8L36 16V26C36 33 24 39 24 39C24 39 12 33 12 26V16L24 8Z" stroke="#F59E0B" stroke-width="2.5" fill="#5C1111"/>
+      <path d="M24 14V33M18 20H30M19 27H29" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="24" cy="14" r="2" fill="#F59E0B"/>
+    </svg>
+  )}
+
+  {name === 'uao' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Universidad Autónoma de Occidente">
+      <rect width="48" height="48" rx="8" fill="#065F46"/>
+      <circle cx="24" cy="24" r="14" stroke="#F59E0B" stroke-width="2.5"/>
+      <path d="M18 20L24 15L30 20V29L24 33L18 29V20Z" fill="#FFFFFF"/>
+      <path d="M24 19L27 25H21L24 19Z" fill="#065F46"/>
+    </svg>
+  )}
+
+  {name === 'minciencias' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MinCiencias">
+      <rect width="48" height="48" rx="8" fill="#0F172A"/>
+      <path d="M10 24C10 16.268 16.268 10 24 10C31.732 10 38 16.268 38 24C38 31.732 31.732 38 24 38" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <path d="M20 18L28 24L20 30" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="24" cy="24" r="3" fill="#FFFFFF"/>
+    </svg>
+  )}
+
+  {name === 'banrep' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Banco de la República">
+      <rect width="48" height="48" rx="8" fill="#78350F"/>
+      <circle cx="24" cy="24" r="15" stroke="#F59E0B" stroke-width="2" fill="#451A03"/>
+      <path d="M24 13V35M18 19C18 16.5 20.5 15 24 15C27.5 15 30 16.5 30 19C30 22 25 23 24 24C23 25 18 26 18 29C18 31.5 20.5 33 24 33C27.5 33 30 31.5 30 29" stroke="#FEF3C7" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  )}
+
+  {name === 'linkedin' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="LinkedIn">
+      <rect width="48" height="48" rx="8" fill="#0A66C2"/>
+      <path d="M15 19H19V33H15V19ZM17 13C15.62 13 14.5 14.12 14.5 15.5C14.5 16.88 15.62 18 17 18C18.38 18 19.5 16.88 19.5 15.5C19.5 14.12 18.38 13 17 13ZM22 19H25.8V20.9H25.9C26.4 19.9 27.7 18.7 29.8 18.7C34 18.7 35 21.4 35 25.1V33H31V25.9C31 24.2 30.9 22 28.5 22C26.1 22 25.7 23.9 25.7 25.8V33H22V19Z" fill="#FFFFFF"/>
+    </svg>
+  )}
+
+  {name === 'scholar' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Google Scholar">
+      <rect width="48" height="48" rx="8" fill="#1E293B"/>
+      <path d="M24 11L10 22L24 33L38 22L24 11Z" fill="#4285F4"/>
+      <path d="M16 26.7V34.5C16 38.9 24 41 24 41C24 41 32 38.9 32 34.5V26.7L24 33L16 26.7Z" fill="#34A853"/>
+      <path d="M37 23.5V33.5H39V22L37 23.5Z" fill="#FBBC05"/>
+    </svg>
+  )}
+
+  {name === 'repec' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="RePEc">
+      <rect width="48" height="48" rx="8" fill="#1E3A8A"/>
+      <text x="24" y="27" fill="#F8FAFC" font-family="var(--font-sans)" font-weight="900" font-size="14" text-anchor="middle">RePEc</text>
+      <path d="M12 33H36" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  )}
+
+  {name === 'stata' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Stata">
+      <rect width="48" height="48" rx="8" fill="#1C3D5A"/>
+      <text x="24" y="29" fill="#FFFFFF" font-family="var(--font-sans)" font-weight="800" font-size="14" text-anchor="middle" letter-spacing="1">STATA</text>
+    </svg>
+  )}
+
+  {name === 'r' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="R Language">
+      <rect width="48" height="48" rx="8" fill="#226E93"/>
+      <circle cx="24" cy="24" r="15" fill="#FFFFFF" opacity="0.15"/>
+      <path d="M19 15H26C29 15 31 16.5 31 19.5C31 22 29.5 23.5 27.5 24L32 33H27L23.5 25H22.5V33H19V15ZM22.5 22H25.5C26.8 22 27.5 21.3 27.5 20.2C27.5 19.1 26.8 18.5 25.5 18.5H22.5V22Z" fill="#FFFFFF"/>
+    </svg>
+  )}
+
+  {name === 'python' && (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Python">
+      <rect width="48" height="48" rx="8" fill="#0F172A"/>
+      <path d="M23.5 11C18.2 11 18.5 13.3 18.5 13.3L18.5 15.6H23.8V17.3H15.8C15.8 17.3 12 16.9 12 22.2C12 27.5 15.3 27.3 15.3 27.3H17.4V24.3C17.4 20.8 20.3 20.8 20.3 20.8H26.3C29.4 20.8 29.4 17.8 29.4 17.8V13.8C29.4 13.8 29.8 11 23.5 11ZM21.3 12.8C22 12.8 22.5 13.4 22.5 14.1C22.5 14.8 22 15.3 21.3 15.3C20.6 15.3 20.1 14.8 20.1 14.1C20.1 13.4 20.6 12.8 21.3 12.8Z" fill="#38BDF8"/>
+      <path d="M24.5 37C29.8 37 29.5 34.7 29.5 34.7L29.5 32.4H24.2V30.7H32.2C32.2 30.7 36 31.1 36 25.8C36 20.5 32.7 20.7 32.7 20.7H30.6V23.7C30.6 27.2 27.7 27.2 27.7 27.2H21.7C18.6 27.2 18.6 30.2 18.6 30.2V34.2C18.6 34.2 18.2 37 24.5 37ZM26.7 35.2C26 35.2 25.5 34.6 25.5 33.9C25.5 33.2 26 32.7 26.7 32.7C27.4 32.7 27.9 33.2 27.9 33.9C27.9 34.6 27.4 35.2 26.7 35.2Z" fill="#F59E0B"/>
+    </svg>
+  )}
+</span>
