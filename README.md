@@ -36,7 +36,7 @@ El proyecto renueva y moderniza la presencia digital del docente a partir de la 
 |   |   |-- Footer.astro              # Pie de pagina institucional con perfiles de investigacion
 |   |   |-- InstitutionLogo.astro     # Motor de logotipos vectoriales SVG
 |   |   |-- LanguageToggle.astro      # Selector interactivo bilingue (ES / EN)
-|   |   |-- Navbar.astro              # Barra de navegacion sticky con deteccion de ruta activa
+|   |   |-- Navbar.astro              # Barra de navegacion limpia de 4 ejes (Research, Teaching, Resources, About)
 |   |   |-- PublicationCard.astro     # Ficha de publicacion con abstract desplegable y BibTeX
 |   |   |-- TeachingCard.astro        # Ficha de catedra con modulos tematicos del syllabus
 |   |   `-- ThemeToggle.astro         # Conmutador accesible de tema (Claro / Oscuro)
@@ -45,12 +45,13 @@ El proyecto renueva y moderniza la presencia digital del docente a partir de la 
 |   |-- layouts/
 |   |   `-- BaseLayout.astro          # Layout maestro con metadatos SEO y script anti-flicker
 |   |-- pages/
-|   |   |-- index.astro               # Pagina principal: Hero bilingue, libros y trayectoria
-|   |   |-- research.astro            # Catalogo cientifico: Articulos Q1-Q4 y Working Papers
-|   |   |-- teaching.astro            # Catedras de pregrado, maestria y doctorado
-|   |   |-- students.astro            # Direccion de tesis doctorales, maestrias y pregrado
-|   |   |-- r-lab.astro               # Laboratorio de computacion: R, Econometria Espacial y Stata
-|   |   `-- resources.astro           # Directorio de microdatos (DANE, BanRep, World Bank, FRED)
+|   |   |-- index.astro               # Portada editorial: Hero inmediato, Research Areas, How I Research
+|   |   |-- research.astro            # Research Archive con filtrado tematico y direccion de tesistas
+|   |   |-- teaching.astro            # Catedras de pregrado y posgrado con objetivos y microdatos
+|   |   |-- resources.astro           # R & Stata Lab, microdatos oficiales y replicacion abierta
+|   |   |-- about.astro               # Biografia formal, trayectoria, libros, perfiles y CV
+|   |   |-- r-lab.astro               # Redireccion canonica a /resources#r-lab
+|   |   `-- students.astro            # Redireccion canonica a /research#students
 |   `-- styles/
 |       `-- global.css                # Sistema de diseno y tokens CSS de alto contraste
 |-- data_raw/                         # Respaldo de datos extraidos del sitio original
