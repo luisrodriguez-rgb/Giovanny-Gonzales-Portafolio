@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioData } from '../data/portfolioData';
+import PublicationCard from '../components/PublicationCard.astro';
+
+const { publications, workingPapers, books } = portfolioData;
+---
+
+<BaseLayout
+  title="Investigación & Publicaciones | Dr. Carlos Giovanni González Espitia"
+  description="Artículos en revistas indexadas (Q1-Q4), working papers en curso y libros de macroeconomía del Dr. Carlos Giovanni González Espitia."
+>
+  <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
+    <!-- Page Header -->
+    <div class="section-header">
+      <span class="section-tag">Producción Académica</span>
+      <h1 class="section-title font-serif" style="font-size: 2.75rem;">
+        Investigación & Publicaciones
+      </h1>
+      <p class="section-subtitle" style="max-width: 750px; font-size: 1.15rem;">
+        "Intento contribuir al debate sobre las políticas públicas y su evaluación desde el rigor de la perspectiva académica."
+      </p>
+      <div style="margin-top: 1rem; display: inline-block; background: var(--bg-tertiary); padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-muted); border: 1px solid var(--border-subtle);">
+        ⚡ <strong>Compromiso de Calidad:</strong> No publico en revistas potencialmente depredadoras (Beall's List), MDPI, ni utilizo autoedición.
+      </div>
+    </div>
+
+    <!-- Working Papers Section -->
+    <section id="working-papers" style="margin-bottom: 4.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Documentos de Trabajo (Working Papers)</h2>
+        <span class="badge badge-status">Investigación Activa</span>
+      </div>
+
+      <div class="grid-2">
+        {workingPapers.map((paper) => (
+          <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <span class="badge badge-q3">{paper.category}</span>
+                <span class="badge badge-status">{paper.status}</span>
+              </div>
+              <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.4;">
+                {paper.title}
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                <strong>Autores:</strong> {paper.authors}
+              </p>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--accent-primary); font-weight: 600;">
+              Área: {paper.area}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Published Journal Articles -->
+    <section id="articles" style="margin-bottom: 4.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Artículos en Revistas Científicas</h2>
+        <span class="badge badge-q1">Scopus & WoS Indexadas</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {publications.map((pub) => (
+          <PublicationCard
+            id={pub.id}
+            title={pub.title}
+            journal={pub.journal}
+            year={pub.year}
+            volume={pub.volume}
+            authors={pub.authors}
+            ranking={pub.ranking}
+            area={pub.area}
+            abstract={pub.abstract}
+            url={pub.url}
+            doi={pub.doi}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Libros Publicados & En Preparación</h2>
+        <span class="badge badge-q2">Ecoe Ediciones</span>
+      </div>
+
+      <div class="grid-2">
+        {books.map((b) => (
+          <div class="card card-highlight">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span class="badge badge-q1">{b.year}</span>
+              <span class="badge badge-status">{b.status}</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">{b.title}</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+              <strong>Autores:</strong> {b.authors.join(', ')}
+            </p>
+            <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin-bottom: 1rem;">
+              {b.publisher}
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+              {b.description}
+            </p>
+            {b.link && (
+              <a href={b.link} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Comprar libro en Editorial Ecoe →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

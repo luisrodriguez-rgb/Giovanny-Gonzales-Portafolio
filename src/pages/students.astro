@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioData } from '../data/portfolioData';
+
+const { supervisedStudents, professor } = portfolioData;
+---
+
+<BaseLayout
+  title="Tesistas & Asesorías de Investigación | Dr. Carlos Giovanni González Espitia"
+  description="Tesis doctorales, de maestría y monografías de grado dirigidas por el Dr. Carlos Giovanni González Espitia en la Universidad Icesi y Universidad Nacional."
+>
+  <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
+    <div class="section-header">
+      <span class="section-tag">Formación Doctoral & de Maestría</span>
+      <h1 class="section-title font-serif" style="font-size: 2.75rem;">
+        Tesistas & Asesorías
+      </h1>
+      <p class="section-subtitle" style="max-width: 800px; font-size: 1.15rem;">
+        Dirección y participación en comités de tesis para estudiantes destacados en programas de pregrado, maestría y doctorado.
+      </p>
+    </div>
+
+    <!-- Classroom Picture Feature -->
+    <div style="margin-bottom: 4rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);">
+      <img
+        src={professor.classroomImage}
+        alt="Profesor Carlos Giovanni González con sus estudiantes de la Universidad Icesi"
+        style="width: 100%; height: auto; display: block;"
+        loading="eager"
+      />
+      <div style="padding: 1.5rem 2rem;">
+        <h3 class="font-serif" style="font-size: 1.35rem; margin-bottom: 0.5rem;">
+          Compromiso con el Crecimiento Académico de Cada Estudiante
+        </h3>
+        <p style="color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem;">
+          "El acompañamiento en la investigación formativa es uno de los pilares más gratificantes de la vida académica. Ver a nuestros estudiantes presentar sus hallazgos en conferencias nacionales e internacionales y publicar en revistas indexadas es el mejor indicador de éxito."
+        </p>
+      </div>
+    </div>
+
+    <!-- Supervised Theses List -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Tesis Asesoradas & Comités de Grado</h2>
+        <span class="badge badge-q1">Investigación Formativa</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {supervisedStudents.map((student) => (
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+                  {student.name}
+                </h3>
+                <p style="font-size: 0.9rem; font-weight: 600; color: var(--accent-primary);">
+                  {student.degree} • {student.institution}
+                </p>
+              </div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span class="badge badge-q2">{student.role}</span>
+                <span class="badge badge-status">{student.year}</span>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-tertiary); padding: 1rem 1.25rem; border-radius: var(--radius-md); margin-top: 0.75rem;">
+              <strong style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">
+                Título de la Investigación / Tesis:
+              </strong>
+              <p style="font-size: 0.98rem; font-family: var(--font-serif); font-style: italic; color: var(--text-primary);">
+                "{student.thesis}"
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

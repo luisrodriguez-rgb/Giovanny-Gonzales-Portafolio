@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioData } from '../data/portfolioData';
+import PublicationCard from '../components/PublicationCard.astro';
+
+const { professor, publications, books, workingPapers, courses } = portfolioData;
+const featuredPublications = publications.slice(0, 3);
+---
+
+<BaseLayout
+  title={`${professor.fullName} | Profesor Titular de Economía`}
+  description={professor.bio}
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-avatar-wrapper">
+        <img
+          src={professor.avatar}
+          alt={professor.fullName}
+          class="hero-avatar"
+          width="320"
+          height="426"
+          loading="eager"
+        />
+        <div class="hero-avatar-badge">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+          Investigador Activo
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="brand-badge">Universidad Icesi</span>
+          <span class="badge badge-q1">MinCiencias A1</span>
+          <span class="badge badge-q2">AACSB & AMBA Accredited</span>
+        </div>
+
+        <h1 class="font-serif">
+          {professor.fullName}
+        </h1>
+
+        <p class="hero-title">
+          {professor.title}
+        </p>
+
+        <p class="hero-institution">
+          {professor.department} • <strong>{professor.institution}</strong>, {professor.location}
+        </p>
+
+        <p class="hero-bio">
+          {professor.bio}
+        </p>
+
+        <div class="quote-box">
+          "{professor.quote}"
+        </div>
+
+        <div class="hero-actions">
+          <a href="/research" class="btn btn-primary">
+            Ver Investigaciones & Papers
+          </a>
+          <a href="/teaching" class="btn btn-outline">
+            Cursos & Syllabi
+          </a>
+          <a href={`mailto:${professor.contact.institutionalEmail}`} class="btn btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Contactar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Ribbon -->
+  <section class="container">
+    <div class="stats-ribbon">
+      <div class="stat-item">
+        <div class="stat-number">~500</div>
+        <div class="stat-label">Horas de Docencia / Año</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Cursos Anuales</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Líneas de Investigación</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">Top 100</div>
+        <div class="stat-label">RePEc 10A Colombia (2018)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & Featured Publications Section -->
+  <section class="container" style="padding: 2rem 1.5rem 4rem;">
+    <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <span class="section-tag">Producción Científica</span>
+        <h2 class="section-title font-serif">Publicaciones Destacadas</h2>
+        <p class="section-subtitle">
+          Contribución al debate y evaluación de políticas públicas con rigor econométrico.
+        </p>
+      </div>
+      <a href="/research" class="btn btn-outline btn-sm">
+        Ver Todas las Publicaciones →
+      </a>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      {featuredPublications.map((pub) => (
+        <PublicationCard
+          id={pub.id}
+          title={pub.title}
+          journal={pub.journal}
+          year={pub.year}
+          volume={pub.volume}
+          authors={pub.authors}
+          ranking={pub.ranking}
+          area={pub.area}
+          abstract={pub.abstract}
+          url={pub.url}
+          doi={pub.doi}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Books Banner -->
+  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 4rem 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Libros Académicos</span>
+        <h2 class="section-title font-serif">Libros & Textos Guía</h2>
+        <p class="section-subtitle">
+          Manuales y monografías para la formación macroeconómica y econométrica en América Latina.
+        </p>
+      </div>
+
+      <div class="grid-2" style="margin-top: 2rem;">
+        {books.map((book) => (
+          <div class="card card-highlight">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span class="badge badge-q1">{book.year}</span>
+              <span class="badge badge-status">{book.status}</span>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+              {book.title}
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+              <strong>Autores:</strong> {book.authors.join(', ')}
+            </p>
+            <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin-bottom: 1rem;">
+              {book.publisher}
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+              {book.description}
+            </p>
+            {book.link && (
+              <a href={book.link} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Ver en Editorial Ecoe →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Career Timeline Section -->
+  <section class="container" style="padding: 4.5rem 1.5rem;">
+    <div class="grid-2">
+      <!-- Education -->
+      <div>
+        <div class="section-header">
+          <span class="section-tag">Formación Académica</span>
+          <h2 class="section-title font-serif">Educación</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          {professor.education.map((edu) => (
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                <h3 style="font-size: 1.15rem; color: var(--text-primary);">{edu.degree}</h3>
+                <span class="badge badge-status">{edu.year}</span>
+              </div>
+              <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.95rem; margin-bottom: 0.25rem;">
+                {edu.institution}
+              </p>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                {edu.details}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div>
+        <div class="section-header">
+          <span class="section-tag">Trayectoria</span>
+          <h2 class="section-title font-serif">Posiciones & Docencia</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          {professor.experience.slice(0, 4).map((exp) => (
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                <h3 style="font-size: 1.15rem; color: var(--text-primary);">{exp.role}</h3>
+                <span class="badge badge-q2">{exp.period}</span>
+              </div>
+              <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.95rem; margin-bottom: 0.25rem;">
+                {exp.institution}
+              </p>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                {exp.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Students Showcase -->
+  <section style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); padding: 4.5rem 0;">
+    <div class="container">
+      <div class="grid-2" style="align-items: center; gap: 3rem;">
+        <div>
+          <span class="section-tag">Comunidad & Tutoría</span>
+          <h2 class="section-title font-serif">Formando Futuros Economistas</h2>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin: 1.25rem 0 1.75rem; font-size: 1.05rem;">
+            Acompañamiento cercano en pregrado, maestría y doctorado. Asesoría metodológica rigurosa para tesis de investigación empírica aplicadas a los grandes retos de Colombia y América Latina.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="/students" class="btn btn-primary">
+              Directorio de Tesistas Asesorados
+            </a>
+            <a href="/teaching" class="btn btn-outline">
+              Explorar Metodología Docente
+            </a>
+          </div>
+        </div>
+        <div>
+          <img
+            src={professor.classroomImage}
+            alt="Profesor Carlos Giovanni González con sus estudiantes de la Universidad Icesi"
+            style="width: 100%; border-radius: var(--radius-xl); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);"
+            loading="lazy"
+          />
+          <p style="font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem; font-style: italic;">
+            Prof. Carlos Giovanni González Espitia junto a una de sus cohortes de estudiantes en la Universidad Icesi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

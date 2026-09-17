@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioData } from '../data/portfolioData';
+
+const { professor } = portfolioData;
+
+const databaseLinks = [
+  {
+    name: "DANE - Gran Encuesta Integrada de Hogares (GEIH)",
+    url: "https://www.dane.gov.co/",
+    desc: "Microdatos oficiales sobre mercado laboral, empleo, informalidad y pobreza en Colombia."
+  },
+  {
+    name: "Banco de la República - Estadísticas Económicas",
+    url: "https://www.banrep.gov.co/es/estadisticas",
+    desc: "Series de tiempo macroeconómicas, agregados monetarios, inflación y tasa de cambio."
+  },
+  {
+    name: "ICFES - Bases de Datos Saber Pro y Saber 11",
+    url: "https://www.icfes.gov.co/",
+    desc: "Información estandarizada de calidad educativa y rendimiento académico en educación básica y superior."
+  },
+  {
+    name: "FRED - Federal Reserve Economic Data",
+    url: "https://fred.stlouisfed.org/",
+    desc: "Cientos de miles de series macroeconómicas y financieras globales."
+  },
+  {
+    name: "World Bank Open Data",
+    url: "https://data.worldbank.org/",
+    desc: "Indicadores de desarrollo mundial, capital humano y desigualdad socioeconómica."
+  }
+];
+
+const softwareTools = [
+  { name: "Stata", url: "https://www.stata.com/", desc: "Software líder para análisis econométrico y datos de panel." },
+  { name: "R Project & RStudio (Posit)", url: "https://posit.co/download/rstudio-desktop/", desc: "Entorno interactivo para computación estadística y visualización avanzada." },
+  { name: "Python", url: "https://www.python.org/", desc: "Ciencia de datos, web scraping y econometría espacial." },
+  { name: "Overleaf / LaTeX", url: "https://www.overleaf.com/", desc: "Redacción científica y tipografía matemática profesional." }
+];
+---
+
+<BaseLayout
+  title="Recursos Académicos & Herramientas | Dr. Carlos Giovanni González Espitia"
+  description="Bases de datos macroeconómicas recomendadas, repositorios de investigación y software econométrico."
+>
+  <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
+    <div class="section-header">
+      <span class="section-tag">Biblioteca de Enlaces</span>
+      <h1 class="section-title font-serif" style="font-size: 2.75rem;">
+        Recursos & Enlaces de Interés
+      </h1>
+      <p class="section-subtitle" style="max-width: 800px; font-size: 1.15rem;">
+        Colección curada de fuentes primarias de microdatos, repositorios institucionales y plataformas de computación para investigación económica.
+      </p>
+    </div>
+
+    <!-- Databases Grid -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Bases de Datos & Microdatos</h2>
+        <span class="badge badge-q1">Fuentes Oficiales</span>
+      </div>
+
+      <div class="grid-2">
+        {databaseLinks.map((db) => (
+          <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                {db.name}
+              </h3>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                {db.desc}
+              </p>
+            </div>
+            <div>
+              <a href={db.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                Acceder al Repositorio →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Software & Computational Tools -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Software & Entornos de Trabajo</h2>
+        <span class="badge badge-q2">Herramientas Recomendadas</span>
+      </div>
+
+      <div class="grid-2">
+        {softwareTools.map((tool) => (
+          <div class="card">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-primary);">
+              {tool.name}
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              {tool.desc}
+            </p>
+            <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              Descargar / Visitar Sitio Oficial
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Academic Associations -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Asociaciones Científicas</h2>
+        <span class="badge badge-status">Membresías Activas</span>
+      </div>
+
+      <div class="grid-3">
+        {professor.affiliations.map((aff) => (
+          <div class="card">
+            <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+              {aff.name}
+            </h4>
+            <a href={aff.url} target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; font-weight: 600;">
+              Visitar Asociación →
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

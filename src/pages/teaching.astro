@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioData } from '../data/portfolioData';
+import TeachingCard from '../components/TeachingCard.astro';
+
+const { courses, professor } = portfolioData;
+---
+
+<BaseLayout
+  title="Docencia & Cursos | Dr. Carlos Giovanni González Espitia"
+  description="Cursos de Econometría, Econometría II, Macroeconomía y posgrados dictados por el Dr. Carlos Giovanni González Espitia en la Universidad Icesi."
+>
+  <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
+    <!-- Page Header -->
+    <div class="section-header">
+      <span class="section-tag">Labor Académica</span>
+      <h1 class="section-title font-serif" style="font-size: 2.75rem;">
+        Docencia & Cátedras
+      </h1>
+      <p class="section-subtitle" style="max-width: 800px; font-size: 1.15rem;">
+        "Dictó 7 cursos de pregrado al año (4 de Econometría + 3 de Macroeconomía) con un promedio de 35 estudiantes por curso. Asimismo, imparto clases en la Maestría en Finanzas, Maestría en Mercadeo, MBA y Doctorado en Economía de los Negocios."
+      </p>
+    </div>
+
+    <!-- Teaching Stats -->
+    <div class="stats-ribbon" style="margin: 2rem 0 3.5rem;">
+      <div class="stat-item">
+        <div class="stat-number">~500</div>
+        <div class="stat-label">Horas lectivas al año</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">35</div>
+        <div class="stat-label">Promedio de alumnos / curso</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Programas de Posgrado</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Enfoque Aplicado & Datos Reales</div>
+      </div>
+    </div>
+
+    <!-- Courses Grid -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Cursos & Syllabi Académicos</h2>
+        <span class="badge badge-q1">Universidad Icesi</span>
+      </div>
+
+      <div class="grid-2">
+        {courses.map((course) => (
+          <TeachingCard
+            code={course.code}
+            name={course.name}
+            level={course.level}
+            semester={course.semester}
+            description={course.description}
+            topics={course.topics}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Lab Philosophy -->
+    <section style="margin-top: 4.5rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+      <div class="grid-2" style="align-items: center; gap: 2.5rem;">
+        <div>
+          <span class="badge badge-q3" style="margin-bottom: 0.75rem;">Metodología Pedagógica</span>
+          <h3 class="font-serif" style="font-size: 1.6rem; margin-bottom: 1rem;">
+            Rigor Estadístico + Laboratorio Computacional
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; font-size: 0.98rem;">
+            Cada sesión combina la deducción teórica de los teoremas y estimadores con laboratorios empíricos usando bases de datos públicas de Colombia (GEIH del DANE, Saber Pro del ICFES, registros de la Policía Nacional y encuestas de empleo formal/informal).
+          </p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <span class="badge badge-status">Stata 18</span>
+            <span class="badge badge-status">RStudio / Quarto</span>
+            <span class="badge badge-status">Python (Spatial Econometrics)</span>
+            <span class="badge badge-status">Overleaf / LaTeX</span>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-tertiary); padding: 1.75rem; border-radius: var(--radius-lg); border-left: 4px solid var(--accent-primary);">
+          <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+            ¿Eres estudiante de mis cursos?
+          </h4>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Encuentra guías de laboratorio, paquetes sugeridos y código fuente en la sección dedicada a R y datos.
+          </p>
+          <a href="/r-lab" class="btn btn-primary btn-sm">
+            Ir a Recursos de R & Stata →
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
