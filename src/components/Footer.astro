@@ -20,7 +20,7 @@ const { professor } = portfolioData;
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
           {professor.institution} • {professor.location}
         </p>
-        <p style="font-size: 0.88rem; color: var(--text-muted); border-left: 2px solid var(--accent-primary); padding-left: 0.75rem;">
+        <p style="font-size: 0.88rem; color: var(--text-muted); border-left: 2px solid var(--accent-primary); padding-left: 0.75rem;" data-lang-es="Grupo de Investigación en Economía, Políticas Públicas y Métodos Cuantitativos (Categoría A1 MinCiencias)" data-lang-en="Economics, Public Policy and Quantitative Methods Research Group (MinCiencias Category A1)">
           Grupo de Investigación en Economía, Políticas Públicas y Métodos Cuantitativos (Categoría A1 MinCiencias)
         </p>
       </div>
@@ -67,13 +67,13 @@ const { professor } = portfolioData;
             <a href={`mailto:${professor.contact.institutionalEmail}`} style="font-family: var(--font-mono); font-size: 0.88rem;">{professor.contact.institutionalEmail}</a>
           </li>
           <li>
-            <strong style="color: var(--text-primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; display: block;">Oficina:</strong>
-            <span style="font-size: 0.88rem; color: var(--text-secondary);">Facultad de Ciencias Administrativas y Económicas, Universidad Icesi</span>
+            <strong style="color: var(--text-primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; display: block;" data-lang-es="Oficina:" data-lang-en="Office:">Oficina:</strong>
+            <span style="font-size: 0.88rem; color: var(--text-secondary);" data-lang-es="Facultad de Ciencias Administrativas y Económicas, Universidad Icesi" data-lang-en="School of Business and Economic Sciences, Universidad Icesi">Facultad de Ciencias Administrativas y Económicas, Universidad Icesi</span>
           </li>
           <li style="margin-top: 0.5rem;">
             <a href={professor.contact.linkedin} target="_blank" rel="noopener noreferrer" class="btn btn-linkedin btn-sm" style="width: 100%;">
               <InstitutionLogo name="linkedin" size={16} />
-              <span>Perfil Oficial en LinkedIn</span>
+              <span data-lang-es="Perfil Oficial en LinkedIn" data-lang-en="Official LinkedIn Profile">Perfil Oficial en LinkedIn</span>
             </a>
           </li>
         </ul>
@@ -81,7 +81,7 @@ const { professor } = portfolioData;
     </div>
 
     <div class="footer-copy">
-      <p>
+      <p data-lang-es={`© ${new Date().getFullYear()} Dr. Carlos Giovanni González Espitia. Departamento de Economía, Universidad Icesi. Cali, Colombia.`} data-lang-en={`© ${new Date().getFullYear()} Dr. Carlos Giovanni González Espitia. Department of Economics, Universidad Icesi. Cali, Colombia.`}>
         © {new Date().getFullYear()} Dr. Carlos Giovanni González Espitia. Departamento de Economía, Universidad Icesi. Cali, Colombia.
       </p>
     </div>

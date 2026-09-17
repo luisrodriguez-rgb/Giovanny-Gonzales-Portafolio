@@ -16,7 +16,7 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
       <span class="badge badge-status" style="margin-bottom: 0.75rem;" data-lang-es="Trayectoria Profesional" data-lang-en="Academic Background">
         Trayectoria Profesional
       </span>
-      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;">
+      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;" data-lang-es="Acerca del Dr. Carlos Giovanni González" data-lang-en="About Dr. Carlos Giovanni González">
         Acerca del Dr. Carlos Giovanni González
       </h1>
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;" data-lang-es={professor.bio.es} data-lang-en={professor.bio.en}>
@@ -27,8 +27,8 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
     <!-- Red de Perfiles Académicos con Contexto -->
     <section style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.75rem;">Perfiles Académicos & Registros Oficiales</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.75rem;" data-lang-es="Perfiles Académicos & Registros Oficiales" data-lang-en="Academic Profiles & Official Registries">Perfiles Académicos & Registros Oficiales</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Fuentes oficiales externas para verificación de citas bibliométricas, working papers y producción indexada." data-lang-en="Official external sources for verification of bibliometric citations, working papers, and indexed publications.">
           Fuentes oficiales externas para verificación de citas bibliométricas, working papers y producción indexada.
         </p>
       </div>
@@ -46,13 +46,13 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
             <div style="flex: 1;">
               <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
                 <h3 style="font-size: 1.15rem; color: var(--text-primary);">{p.name}</h3>
-                <span class="badge badge-status font-mono" style="font-size: 0.72rem;">{p.badge}</span>
+                <span class="badge badge-status font-mono" style="font-size: 0.72rem;" data-lang-es={p.badge.es} data-lang-en={p.badge.en}>{p.badge.es}</span>
               </div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-                {p.description}
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;" data-lang-es={p.description.es} data-lang-en={p.description.en}>
+                {p.description.es}
               </p>
               <a href={p.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                <span>Acceder al Registro Oficial →</span>
+                <span data-lang-es="Acceder al Registro Oficial →" data-lang-en="Access Official Registry →">Acceder al Registro Oficial →</span>
               </a>
             </div>
           </div>
@@ -63,8 +63,8 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
     <!-- Línea de Tiempo Académica -->
     <section style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.75rem;">Trayectoria Académica & Formación</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.75rem;" data-lang-es="Trayectoria Académica & Formación" data-lang-en="Academic Trajectory & Education">Trayectoria Académica & Formación</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Grados doctorales, condecoraciones y recorrido docente universitario en España y Colombia." data-lang-en="Doctoral degrees, academic honors, and university faculty positions in Spain and Colombia.">
           Grados doctorales, condecoraciones y recorrido docente universitario en España y Colombia.
         </p>
       </div>
@@ -75,7 +75,7 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
             <div style="position: absolute; left: -1.95rem; top: 0.45rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-primary);"></div>
             <div class="card" style="padding: 1.25rem 1.5rem;">
               <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem;">
-                <h3 style="font-size: 1.1rem; color: var(--text-primary);">{m.role}</h3>
+                <h3 style="font-size: 1.1rem; color: var(--text-primary);" data-lang-es={m.role.es} data-lang-en={m.role.en}>{m.role.es}</h3>
                 <span class="badge badge-status font-mono" style="font-size: 0.75rem;">{m.year}</span>
               </div>
               <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.92rem;">
@@ -91,7 +91,7 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
     <section style="margin-bottom: 4.5rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2.5rem;">
       <div class="grid-2" style="align-items: center; gap: 2.5rem;">
         <div>
-          <span class="badge badge-q3" style="margin-bottom: 0.75rem;">Producción Bibliográfica</span>
+          <span class="badge badge-q3" style="margin-bottom: 0.75rem;" data-lang-es="Producción Bibliográfica" data-lang-en="Book Publication">Producción Bibliográfica</span>
           <h2 class="font-serif" style="font-size: 2rem; margin-bottom: 0.75rem;">
             {book.title}
           </h2>
@@ -101,25 +101,25 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
           <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">
             {book.publisher} • ISBN: {book.isbn}
           </p>
-          <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-            {book.description}
+          <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;" data-lang-es={book.description.es} data-lang-en={book.description.en}>
+            {book.description.es}
           </p>
           {book.link && (
             <a href={book.link} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-              <span>Consultar en Editorial Ecoe →</span>
+              <span data-lang-es="Consultar en Editorial Ecoe →" data-lang-en="View on Ecoe Ediciones →">Consultar en Editorial Ecoe →</span>
             </a>
           )}
         </div>
 
         <div style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem;">
-          <h3 class="font-serif" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Enfoque & Adopción Docente</h3>
-          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;">
+          <h3 class="font-serif" style="font-size: 1.25rem; margin-bottom: 0.75rem;" data-lang-es="Enfoque & Adopción Docente" data-lang-en="Focus & Curricular Adoption">Enfoque & Adopción Docente</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;" data-lang-es="Diseñado como manual guía para la toma de decisiones gerenciales frente a ciclos macroeconómicos, inflación, tasa de cambio y políticas fiscales en países en desarrollo." data-lang-en="Designed as a core guidebook for executive decision-making regarding macroeconomic business cycles, inflation, foreign exchange, and fiscal policies in developing nations.">
             Diseñado como manual guía para la toma de decisiones gerenciales frente a ciclos macroeconómicos, inflación, tasa de cambio y políticas fiscales en países en desarrollo.
           </p>
           <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;">
-            <li>Adoptado en programas de Economía, Finanzas y MBA.</li>
-            <li>Casos de estudio contextualizados a economías andinas.</li>
-            <li>Capítulos estructurados con aplicaciones analíticas y datos reales.</li>
+            <li data-lang-es="Adoptado en programas de Economía, Finanzas y MBA." data-lang-en="Adopted in Economics, Finance, and MBA curricula.">Adoptado en programas de Economía, Finanzas y MBA.</li>
+            <li data-lang-es="Casos de estudio contextualizados a economías andinas." data-lang-en="Case studies contextualized to Andean and emerging economies.">Casos de estudio contextualizados a economías andinas.</li>
+            <li data-lang-es="Capítulos estructurados con aplicaciones analíticas y datos reales." data-lang-en="Chapters structured with analytical applications and empirical microdata.">Capítulos estructurados con aplicaciones analíticas y datos reales.</li>
           </ul>
         </div>
       </div>
@@ -127,17 +127,17 @@ const { professor, careerMilestones, book, academicProfiles } = portfolioData;
 
     <!-- Descarga de CV & Contacto Académico -->
     <section class="card" style="text-align: center; padding: 3rem 2rem;">
-      <h2 class="font-serif" style="font-size: 2rem; margin-bottom: 0.75rem;">Currículum Vitae Académico</h2>
-      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.75rem; font-size: 1rem;">
+      <h2 class="font-serif" style="font-size: 2rem; margin-bottom: 0.75rem;" data-lang-es="Currículum Vitae Académico" data-lang-en="Academic Curriculum Vitae">Currículum Vitae Académico</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.75rem; font-size: 1rem;" data-lang-es="Para comités editoriales, pares evaluadores, eventos científicos o acreditaciones institucionales, consulte el registro curricular completo." data-lang-en="For editorial committees, peer reviewers, scientific conferences, or institutional accreditation, consult the full academic record.">
         Para comités editoriales, pares evaluadores, eventos científicos o acreditaciones institucionales, consulte el registro curricular completo.
       </p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href={professor.contact.cvlac} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <InstitutionLogo name="minciencias" size={16} />
-          <span>Ver CvLAC MinCiencias</span>
+          <span data-lang-es="Ver CvLAC MinCiencias" data-lang-en="View MinCiencias CvLAC">Ver CvLAC MinCiencias</span>
         </a>
         <a href={`mailto:${professor.contact.institutionalEmail}`} class="btn btn-outline">
-          <span>Solicitar CV en PDF ({professor.contact.institutionalEmail})</span>
+          <span data-lang-es={`Solicitar CV en PDF (${professor.contact.institutionalEmail})`} data-lang-en={`Request CV in PDF (${professor.contact.institutionalEmail})`}>Solicitar CV en PDF ({professor.contact.institutionalEmail})</span>
         </a>
       </div>
     </section>

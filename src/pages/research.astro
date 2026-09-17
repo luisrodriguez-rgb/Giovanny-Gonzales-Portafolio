@@ -13,13 +13,13 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
   <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
     <!-- Page Header -->
     <div style="margin-bottom: 3.5rem; max-width: 820px;">
-      <span class="badge badge-status" style="margin-bottom: 0.75rem;">
-        Research Hub & Archive
+      <span class="badge badge-status" style="margin-bottom: 0.75rem;" data-lang-es="Investigación Académica & Archivo" data-lang-en="Research Hub & Archive">
+        Investigación Académica & Archivo
       </span>
-      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;">
+      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;" data-lang-es="Investigación & Publicaciones" data-lang-en="Research & Publications">
         Investigación & Publicaciones
       </h1>
-      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;">
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;" data-lang-es="Investigación cuantitativa aplicada enfocada en evaluación de políticas públicas, dinámicas socioeconómicas territoriales y determinantes de la educación y la seguridad en Colombia." data-lang-en="Applied quantitative research focused on public policy evaluation, territorial socioeconomic dynamics, and determinants of education and security in Colombia.">
         Investigación cuantitativa aplicada enfocada en evaluación de políticas públicas, dinámicas socioeconómicas territoriales y determinantes de la educación y la seguridad en Colombia.
       </p>
     </div>
@@ -27,19 +27,19 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
     <!-- 1. Research Areas Detailed -->
     <section style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Líneas de Investigación (Pillars)</h2>
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Líneas de Investigación (Pillars)" data-lang-en="Research Areas (Pillars)">Líneas de Investigación (Pillars)</h2>
       </div>
 
       <div class="grid-2">
         {researchAreas.map((area) => (
           <div id={area.id} class="card card-highlight">
-            <h3 class="font-serif" style="font-size: 1.35rem; margin-bottom: 0.35rem; color: var(--text-primary);">
+            <h3 class="font-serif" style="font-size: 1.35rem; margin-bottom: 0.35rem; color: var(--text-primary);" data-lang-es={area.title.es} data-lang-en={area.title.en}>
               {area.title.es}
             </h3>
-            <p style="font-size: 0.9rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 0.75rem;">
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 0.75rem;" data-lang-es={area.tagline.es} data-lang-en={area.tagline.en}>
               {area.tagline.es}
             </p>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;">
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;" data-lang-es={area.description.es} data-lang-en={area.description.en}>
               {area.description.es}
             </p>
             <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
@@ -58,8 +58,8 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
     <section id="publications" style="margin-bottom: 4.5rem;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
         <div>
-          <h2 class="font-serif" style="font-size: 1.85rem;">Research Archive</h2>
-          <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+          <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Archivo de Investigaciones" data-lang-en="Research Archive">Research Archive</h2>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Artículos en revistas científicas indexadas (Scopus / Web of Science) con microdatos y citas BibTeX." data-lang-en="Articles in peer-reviewed indexed scientific journals (Scopus / Web of Science) with microdata and BibTeX citations.">
             Artículos en revistas científicas indexadas (Scopus / Web of Science) con microdatos y citas BibTeX.
           </p>
         </div>
@@ -67,10 +67,10 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
 
       <!-- Filtros Editoriales por Tema -->
       <div class="archive-filter-bar" role="group" aria-label="Filtrar por área de investigación">
-        <button type="button" class="filter-btn active" data-filter="all">TODOS</button>
-        <button type="button" class="filter-btn" data-filter="education">EDUCACIÓN</button>
-        <button type="button" class="filter-btn" data-filter="crime">CRIMEN & SEGURIDAD</button>
-        <button type="button" class="filter-btn" data-filter="entrepreneurship">EMPRENDIMIENTO</button>
+        <button type="button" class="filter-btn active" data-filter="all" data-lang-es="TODOS" data-lang-en="ALL">TODOS</button>
+        <button type="button" class="filter-btn" data-filter="education" data-lang-es="EDUCACIÓN" data-lang-en="EDUCATION">EDUCACIÓN</button>
+        <button type="button" class="filter-btn" data-filter="crime" data-lang-es="CRIMEN & SEGURIDAD" data-lang-en="CRIME & SECURITY">CRIMEN & SEGURIDAD</button>
+        <button type="button" class="filter-btn" data-filter="entrepreneurship" data-lang-es="EMPRENDIMIENTO" data-lang-en="ENTREPRENEURSHIP">EMPRENDIMIENTO</button>
       </div>
 
       <!-- Lista de Publicaciones con data-area para filtrado dinámico -->
@@ -96,11 +96,11 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
               <div class="pub-deep-dive">
                 <div class="deep-dive-grid">
                   <div class="deep-dive-block">
-                    <span class="deep-dive-label">Pregunta de Investigación:</span>
+                    <span class="deep-dive-label" data-lang-es="Pregunta de Investigación:" data-lang-en="Research Question:">Pregunta de Investigación:</span>
                     <p class="deep-dive-text">{pub.researchQuestion}</p>
                   </div>
                   <div class="deep-dive-block">
-                    <span class="deep-dive-label">Metodología & Identificación:</span>
+                    <span class="deep-dive-label" data-lang-es="Metodología & Identificación:" data-lang-en="Methodology & Identification:">Metodología & Identificación:</span>
                     <p class="deep-dive-text">{pub.methodology}</p>
                   </div>
                 </div>
@@ -114,8 +114,8 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
     <!-- 3. Working Papers (Investigación en Curso) -->
     <section style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Documentos de Trabajo (Working Papers)</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Documentos de Trabajo (Working Papers)" data-lang-en="Working Papers (Work in Progress)">Documentos de Trabajo (Working Papers)</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Manuscritos en proceso de arbitraje por pares o revisión en comités editoriales." data-lang-en="Manuscripts under peer review or editorial evaluation.">
           Manuscritos en proceso de arbitraje por pares o revisión en comités editoriales.
         </p>
       </div>
@@ -139,7 +139,7 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
               </p>
             </div>
             <div style="border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; font-size: 0.82rem; color: var(--text-muted);">
-              Estado: <strong>{paper.status}</strong> · {paper.area}
+              <strong data-lang-es="Estado: " data-lang-en="Status: ">Estado: </strong><strong>{paper.status}</strong> · {paper.area}
             </div>
           </div>
         ))}
@@ -149,8 +149,8 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
     <!-- 4. Students & Advising (Tesis y Asesorías) -->
     <section id="students">
       <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Tesistas & Mentoría de Investigación</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Tesistas & Mentoría de Investigación" data-lang-en="Student Advising & Research Mentorship">Tesistas & Mentoría de Investigación</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Tesis doctorales, de maestría y monografías de grado asesoradas en la Universidad Icesi y Universidad Nacional." data-lang-en="Doctoral dissertations, master's theses, and undergraduate monographs advised at Universidad Icesi and Universidad Nacional.">
           Tesis doctorales, de maestría y monografías de grado asesoradas en la Universidad Icesi y Universidad Nacional.
         </p>
       </div>
@@ -159,11 +159,11 @@ const { researchAreas, publications, workingPapers, supervisedStudents } = portf
         <table class="academic-table">
           <thead>
             <tr>
-              <th>Estudiante</th>
-              <th>Programa</th>
-              <th>Tema / Título de la Investigación</th>
-              <th>Año</th>
-              <th>Rol</th>
+              <th data-lang-es="Estudiante" data-lang-en="Student">Estudiante</th>
+              <th data-lang-es="Programa" data-lang-en="Program">Programa</th>
+              <th data-lang-es="Tema / Título de la Investigación" data-lang-en="Research Topic / Title">Tema / Título de la Investigación</th>
+              <th data-lang-es="Año" data-lang-en="Year">Año</th>
+              <th data-lang-es="Rol" data-lang-en="Role">Rol</th>
             </tr>
           </thead>
           <tbody>
