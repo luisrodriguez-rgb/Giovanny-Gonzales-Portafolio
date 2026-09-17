@@ -1,0 +1,18 @@
+{
+  "name": "giovanni-gonzalez-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Sitio web académico profesional y portafolio de investigación del Dr. Carlos Giovanni González Espitia",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
+  },
+  "dependencies": {
+    "astro": "^7.3.3"
+  }
+}
