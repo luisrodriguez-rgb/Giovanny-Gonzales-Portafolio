@@ -9,25 +9,37 @@ const databaseLinks = [
   {
     name: "DANE - Gran Encuesta Integrada de Hogares (GEIH)",
     url: "https://www.dane.gov.co/",
-    desc: "Microdatos oficiales sobre mercado laboral, empleo, informalidad y pobreza en Colombia.",
+    desc: {
+      es: "Microdatos oficiales sobre mercado laboral, empleo, informalidad y pobreza en Colombia.",
+      en: "Official microdata on labor markets, employment, informality, and poverty in Colombia."
+    },
     logo: "icesi"
   },
   {
     name: "Banco de la República - Estadísticas Económicas",
     url: "https://www.banrep.gov.co/es/estadisticas",
-    desc: "Series macroeconómicas, agregados monetarios, inflación y tasa de cambio.",
+    desc: {
+      es: "Series macroeconómicas, agregados monetarios, inflación y tasa de cambio.",
+      en: "Macroeconomic time series, monetary aggregates, inflation, and exchange rates."
+    },
     logo: "banrep"
   },
   {
     name: "ICFES - Bases de Datos Saber 11 y Saber Pro",
     url: "https://www.icfes.gov.co/",
-    desc: "Información estandarizada de calidad educativa y rendimiento académico en Colombia.",
+    desc: {
+      es: "Información estandarizada de calidad educativa y rendimiento académico en Colombia.",
+      en: "Standardized testing microdata on educational quality and academic performance in Colombia."
+    },
     logo: "minciencias"
   },
   {
     name: "FRED - Federal Reserve Economic Data",
     url: "https://fred.stlouisfed.org/",
-    desc: "Cientos de miles de series macroeconómicas y financieras internacionales.",
+    desc: {
+      es: "Cientos de miles de series macroeconómicas y financieras internacionales.",
+      en: "Hundreds of thousands of international macroeconomic and financial time series."
+    },
     logo: "repec"
   }
 ];
@@ -40,13 +52,13 @@ const databaseLinks = [
   <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
     <!-- Header -->
     <div style="margin-bottom: 3.5rem; max-width: 820px;">
-      <span class="badge badge-status" style="margin-bottom: 0.75rem;">
-        Computational Economics & Data
+      <span class="badge badge-status" style="margin-bottom: 0.75rem;" data-lang-es="Economía Computacional & Datos" data-lang-en="Computational Economics & Data">
+        Economía Computacional & Datos
       </span>
-      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;">
+      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;" data-lang-es="Recursos, Laboratorio R & Datos" data-lang-en="Resources, R Lab & Data">
         Recursos, Laboratorio R & Datos
       </h1>
-      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;">
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;" data-lang-es="Herramientas computacionales para estudiantes e investigadores: tutoriales de econometría en R, fuentes primarias de microdatos y código reproducible." data-lang-en="Computational tools for students and researchers: econometrics tutorials in R, primary microdata sources, and reproducible open code.">
         Herramientas computacionales para estudiantes e investigadores: tutoriales de econometría en R, fuentes primarias de microdatos y código reproducible.
       </p>
     </div>
@@ -54,8 +66,8 @@ const databaseLinks = [
     <!-- 1. R & Stata Lab -->
     <section id="r-lab" style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">R & Stata Lab: Tutoriales & Código</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="R & Stata Lab: Tutoriales & Código" data-lang-en="R & Stata Lab: Tutorials & Code">R & Stata Lab: Tutoriales & Código</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Módulos computacionales para análisis estadístico reproducible y econometría espacial." data-lang-en="Computational modules for reproducible statistical analysis and spatial econometrics.">
           Módulos computacionales para análisis estadístico reproducible y econometría espacial.
         </p>
       </div>
@@ -69,15 +81,15 @@ const databaseLinks = [
                   <span class="badge badge-status font-mono" style="font-size: 0.72rem;">{t}</span>
                 ))}
               </div>
-              <h3 class="font-serif" style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.5rem;">
-                {item.title}
+              <h3 class="font-serif" style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.5rem;" data-lang-es={item.title.es} data-lang-en={item.title.en}>
+                {item.title.es}
               </h3>
-              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                {item.desc}
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;" data-lang-es={item.desc.es} data-lang-en={item.desc.en}>
+                {item.desc.es}
               </p>
             </div>
             <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--accent-primary); font-weight: 600;">
-              Código disponible para estudiantes
+              <span data-lang-es="Código disponible para estudiantes" data-lang-en="Code available for students">Código disponible para estudiantes</span>
             </div>
           </div>
         ))}
@@ -87,19 +99,19 @@ const databaseLinks = [
       <div class="card" style="padding: 2rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
           <div>
-            <h3 class="font-serif" style="font-size: 1.3rem;">Ejemplo de Script: Modelo Spatial Durbin en R</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Estimación de efectos directos e indirectos (derrames espaciales) de la informalidad sobre homicidios.</p>
+            <h3 class="font-serif" style="font-size: 1.3rem;" data-lang-es="Ejemplo de Script: Modelo Spatial Durbin en R" data-lang-en="Script Example: Spatial Durbin Model in R">Ejemplo de Script: Modelo Spatial Durbin en R</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);" data-lang-es="Estimación de efectos directos e indirectos (derrames espaciales) de la informalidad sobre homicidios." data-lang-en="Estimation of direct and indirect effects (spatial spillovers) of informality on homicides.">Estimación de efectos directos e indirectos (derrames espaciales) de la informalidad sobre homicidios.</p>
           </div>
           <span class="badge badge-q2 font-mono" style="font-size: 0.75rem;">R / spatialreg</span>
         </div>
 
         <pre style="background: var(--bg-tertiary); padding: 1.25rem 1.5rem; border-radius: var(--radius-md); overflow-x: auto; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; border: 1px solid var(--border-subtle); color: var(--text-primary);">
-<code># 1. Cargar librerias espaciales
+<code># 1. Cargar librerias espaciales / Load spatial libraries
 library(sf)          # Geometrias barriales
 library(spdep)       # Matriz de pesos W
 library(spatialreg)  # Modelos SAR, SEM, SDM
 
-# 2. Construir matriz de contiguidad tipo Reina
+# 2. Construir matriz de contiguidad tipo Reina / Queen contiguity matrix
 vecinos &lt;- poly2nb(cali_barrios, queen = TRUE)
 W &lt;- nb2listw(vecinos, style = "W", zero.policy = TRUE)
 
@@ -122,8 +134,8 @@ summary(impacts(modelo_sdm, listw = W, R = 1000))</code>
     <!-- 2. Data Sources (Microdatos Oficiales) -->
     <section id="data" style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Microdatos & Repositorios Oficiales</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Microdatos & Repositorios Oficiales" data-lang-en="Microdata & Official Repositories">Microdatos & Repositorios Oficiales</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Fuentes primarias de datos utilizadas en las cátedras de Econometría y proyectos de investigación." data-lang-en="Primary data sources used in Econometrics courses and empirical research projects.">
           Fuentes primarias de datos utilizadas en las cátedras de Econometría y proyectos de investigación.
         </p>
       </div>
@@ -136,11 +148,11 @@ summary(impacts(modelo_sdm, listw = W, R = 1000))</code>
               <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">
                 {db.name}
               </h3>
-              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-                {db.desc}
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;" data-lang-es={db.desc.es} data-lang-en={db.desc.en}>
+                {db.desc.es}
               </p>
               <a href={db.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                <span>Ir al Repositorio Oficial →</span>
+                <span data-lang-es="Ir al Repositorio Oficial →" data-lang-en="Go to Official Repository →">Ir al Repositorio Oficial →</span>
               </a>
             </div>
           </div>
@@ -150,19 +162,19 @@ summary(impacts(modelo_sdm, listw = W, R = 1000))</code>
 
     <!-- 3. Replication & Open Science -->
     <section id="replication" class="card" style="padding: 2.5rem; background: var(--bg-card);">
-      <span class="badge badge-q1" style="margin-bottom: 0.5rem;">Open Science & Replicability</span>
-      <h2 class="font-serif" style="font-size: 1.85rem; margin-bottom: 0.75rem;">
+      <span class="badge badge-q1" style="margin-bottom: 0.5rem;" data-lang-es="Ciencia Abierta & Replicabilidad" data-lang-en="Open Science & Replicability">Ciencia Abierta & Replicabilidad</span>
+      <h2 class="font-serif" style="font-size: 1.85rem; margin-bottom: 0.75rem;" data-lang-es="Replicación Científica & Código Abierto" data-lang-en="Scientific Replication & Open Science">
         Replicación Científica & Código Abierto
       </h2>
-      <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.98rem; max-width: 800px; margin-bottom: 1.5rem;">
+      <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.98rem; max-width: 800px; margin-bottom: 1.5rem;" data-lang-es="En concordancia con las mejores prácticas de la profesión económica y los requerimientos de revistas arbitradas (Data Availability Statements), los paquetes de replicación (archivos .do de Stata y scripts .R) de nuestras investigaciones publicadas están disponibles para la comunidad académica." data-lang-en="In accordance with best practices in the economics profession and peer-reviewed journal requirements (Data Availability Statements), replication packages (Stata .do files and .R scripts) for published papers are openly available to the academic community.">
         En concordancia con las mejores prácticas de la profesión económica y los requerimientos de revistas arbitradas (Data Availability Statements), los paquetes de replicación (archivos .do de Stata y scripts .R) de nuestras investigaciones publicadas están disponibles para la comunidad académica.
       </p>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
         <a href={`mailto:${professor.contact.institutionalEmail}?subject=Replication%20Data%20Request`} class="btn btn-primary btn-sm">
-          <span>Solicitar Paquete de Replicación</span>
+          <span data-lang-es="Solicitar Paquete de Replicación" data-lang-en="Request Replication Package">Solicitar Paquete de Replicación</span>
         </a>
         <a href="/research#publications" class="btn btn-outline btn-sm">
-          <span>Consultar Artículos Publicados</span>
+          <span data-lang-es="Consultar Artículos Publicados" data-lang-en="Browse Published Articles">Consultar Artículos Publicados</span>
         </a>
       </div>
     </section>

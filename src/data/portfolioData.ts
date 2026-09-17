@@ -64,15 +64,15 @@ export interface WorkingPaper {
 
 export interface Course {
   code: string;
-  name: string;
+  name: { es: string; en: string };
   level: 'undergraduate' | 'graduate';
-  degree: string;
-  semester: string;
-  description: string;
-  objectives: string[];
+  degree: { es: string; en: string };
+  semester: { es: string; en: string };
+  description: { es: string; en: string };
+  objectives: { es: string[]; en: string[] };
   software: string[];
-  datasets: string[];
-  topics: string[];
+  datasets: { es: string[]; en: string[] };
+  topics: { es: string[]; en: string[] };
 }
 
 export interface SupervisedStudent {
@@ -90,7 +90,7 @@ export interface Book {
   year: number;
   publisher: string;
   authors: string[];
-  description: string;
+  description: { es: string; en: string };
   link?: string;
   isbn?: string;
 }
@@ -98,14 +98,14 @@ export interface Book {
 export interface AcademicProfile {
   name: string;
   platform: string;
-  badge: string;
+  badge: { es: string; en: string };
   url: string;
-  description: string;
+  description: { es: string; en: string };
 }
 
 export interface CareerMilestone {
   year: string;
-  role: string;
+  role: { es: string; en: string };
   institution: string;
   location: string;
   type: 'education' | 'position';
@@ -114,9 +114,9 @@ export interface CareerMilestone {
 export interface ResearchStep {
   step: string;
   name: string;
-  title: string;
-  description: string;
-  detail: string;
+  title: { es: string; en: string };
+  description: { es: string; en: string };
+  detail: { es: string; en: string };
 }
 
 export const portfolioData = {
@@ -223,44 +223,98 @@ export const portfolioData = {
     {
       step: "01",
       name: "QUESTION",
-      title: "Pregunta Económica",
-      description: "¿Qué problema económico o de política pública se intenta comprender?",
-      detail: "Identificación de dilemas en educación, mercado laboral informal, violencia urbana o decisiones de crecimiento empresarial."
+      title: {
+        es: "Pregunta Económica",
+        en: "Economic Question"
+      },
+      description: {
+        es: "¿Qué problema económico o de política pública se intenta comprender?",
+        en: "What economic issue or public policy challenge are we addressing?"
+      },
+      detail: {
+        es: "Identificación de dilemas en educación, mercado laboral informal, violencia urbana o decisiones de crecimiento empresarial.",
+        en: "Identifying dilemmas in education, informal labor markets, urban violence, or business growth decisions."
+      }
     },
     {
       step: "02",
       name: "DATA",
-      title: "Microdatos Oficiales",
-      description: "Recopilación de registros administrativos y encuestas primarias",
-      detail: "DANE GEIH, ICFES Saber 11 / Saber Pro, Policía Nacional, Banco de la República y bases GEM Colombia."
+      title: {
+        es: "Microdatos Oficiales",
+        en: "Official Microdata"
+      },
+      description: {
+        es: "Recopilación de registros administrativos y encuestas primarias",
+        en: "Collection of administrative records and primary survey data"
+      },
+      detail: {
+        es: "DANE GEIH, ICFES Saber 11 / Saber Pro, Policía Nacional, Banco de la República y bases GEM Colombia.",
+        en: "DANE GEIH, ICFES Saber 11 / Saber Pro, National Police, Banco de la República, and GEM Colombia data."
+      }
     },
     {
       step: "03",
       name: "METHOD",
-      title: "Estrategia de Identificación",
-      description: "Diseño econométrico para mitigar sesgos y endogeneidad",
-      detail: "Modelos Spatial Durbin (matrices de contigüidad Reina), probit multinomial con corrección Heckman y variables instrumentales."
+      title: {
+        es: "Estrategia de Identificación",
+        en: "Identification Strategy"
+      },
+      description: {
+        es: "Diseño econométrico para mitigar sesgos y endogeneidad",
+        en: "Econometric design to mitigate bias and endogeneity"
+      },
+      detail: {
+        es: "Modelos Spatial Durbin (matrices de contigüidad Reina), probit multinomial con corrección Heckman y variables instrumentales.",
+        en: "Spatial Durbin models (Queen contiguity matrices), multinomial probit with Heckman selection, and instrumental variables."
+      }
     },
     {
       step: "04",
       name: "ESTIMATION",
-      title: "Computación Científica",
-      description: "Estimación reproducible y contrastes de especificación",
-      detail: "Implementación en R (sf, spatialreg, plm), Stata 18 y Python para análisis geoespacial y series."
+      title: {
+        es: "Computación Científica",
+        en: "Scientific Computing"
+      },
+      description: {
+        es: "Estimación reproducible y contrastes de especificación",
+        en: "Reproducible estimation and specification diagnostics"
+      },
+      detail: {
+        es: "Implementación en R (sf, spatialreg, plm), Stata 18 y Python para análisis geoespacial y series.",
+        en: "Implementation in R (sf, spatialreg, plm), Stata 18, and Python for geospatial and time series analysis."
+      }
     },
     {
       step: "05",
       name: "EVIDENCE",
-      title: "Interpretación Empírica",
-      description: "Análisis de impactos directos, indirectos y significancia",
-      detail: "Descomposición de coeficientes, elasticidades y pruebas de robustez estadística sin sobrestimaciones."
+      title: {
+        es: "Interpretación Empírica",
+        en: "Empirical Interpretation"
+      },
+      description: {
+        es: "Análisis de impactos directos, indirectos y significancia",
+        en: "Analysis of direct and indirect impacts and statistical significance"
+      },
+      detail: {
+        es: "Descomposición de coeficientes, elasticidades y pruebas de robustez estadística sin sobrestimaciones.",
+        en: "Decomposition of coefficients, elasticities, and robustness checks without parameter overestimation."
+      }
     },
     {
       step: "06",
       name: "POLICY",
-      title: "Implicaciones de Política",
-      description: "Traducción de hallazgos en recomendaciones prácticas",
-      detail: "Evidencia accionable para secretarías de educación, seguridad ciudadana, formuladores de política y gerencia."
+      title: {
+        es: "Implicaciones de Política",
+        en: "Policy Implications"
+      },
+      description: {
+        es: "Traducción de hallazgos en recomendaciones prácticas",
+        en: "Translating findings into actionable evidence-based recommendations"
+      },
+      detail: {
+        es: "Evidencia accionable para secretarías de educación, seguridad ciudadana, formuladores de política y gerencia.",
+        en: "Actionable evidence for departments of education, urban public safety, policy makers, and executives."
+      }
     }
   ] as ResearchStep[],
 
@@ -471,111 +525,264 @@ export const portfolioData = {
   courses: [
     {
       code: "ECON-301",
-      name: "Econometría",
+      name: {
+        es: "Econometría",
+        en: "Econometrics"
+      },
       level: "undergraduate",
-      degree: "Pregrado en Economía / Finanzas",
-      semester: "Semestral (I y II Semestre)",
-      description: "Fundamentos teóricos y aplicados del modelo de regresión lineal clásico, inferencia estadística, violación de supuestos (heterocedasticidad, autocorrelación, endogeneidad) y métodos de variables instrumentales.",
-      objectives: [
-        "Deducir analíticamente las propiedades del estimador MCO bajo el Teorema de Gauss-Markov.",
-        "Detectar y corregir heterocedasticidad mediante estimadores de White y Newey-West.",
-        "Implementar estimación por variables instrumentales (2SLS) ante presencia de endogeneidad.",
-        "Elaborar informes de investigación empírica con microdatos reales en Stata y R."
-      ],
+      degree: {
+        es: "Pregrado en Economía / Finanzas",
+        en: "B.S. in Economics & Finance"
+      },
+      semester: {
+        es: "Semestral (I y II Semestre)",
+        en: "Semester-based (Semesters I & II)"
+      },
+      description: {
+        es: "Fundamentos teóricos y aplicados del modelo de regresión lineal clásico, inferencia estadística, violación de supuestos (heterocedasticidad, autocorrelación, endogeneidad) y métodos de variables instrumentales.",
+        en: "Theoretical and applied foundations of the classical linear regression model, statistical inference, violation of assumptions (heteroskedasticity, autocorrelation, endogeneity), and instrumental variables methods."
+      },
+      objectives: {
+        es: [
+          "Deducir analíticamente las propiedades del estimador MCO bajo el Teorema de Gauss-Markov.",
+          "Detectar y corregir heterocedasticidad mediante estimadores de White y Newey-West.",
+          "Implementar estimación por variables instrumentales (2SLS) ante presencia de endogeneidad.",
+          "Elaborar informes de investigación empírica con microdatos reales en Stata y R."
+        ],
+        en: [
+          "Analytically derive OLS estimator properties under the Gauss-Markov Theorem.",
+          "Detect and correct heteroskedasticity using White and Newey-West robust estimators.",
+          "Implement instrumental variables estimation (2SLS) in the presence of endogeneity.",
+          "Produce empirical research reports using real-world microdata in Stata and R."
+        ]
+      },
       software: ["Stata 18", "RStudio / Quarto"],
-      datasets: ["GEIH DANE (Mercado Laboral)", "Saber Pro ICFES (Educación)", "Series Macro BanRep"],
-      topics: [
-        "Modelo de Regresión Lineal Múltiple",
-        "Propiedades del estimador MCO",
-        "Pruebas de hipótesis e inferencia",
-        "Diagnósticos de heterocedasticidad y multicolinealidad",
-        "Endogeneidad y Variables Instrumentales (2SLS)"
-      ]
+      datasets: {
+        es: ["GEIH DANE (Mercado Laboral)", "Saber Pro ICFES (Educación)", "Series Macro BanRep"],
+        en: ["GEIH DANE (Labor Market)", "Saber Pro ICFES (Education)", "BanRep Macro Series"]
+      },
+      topics: {
+        es: [
+          "Modelo de Regresión Lineal Múltiple",
+          "Propiedades del estimador MCO",
+          "Pruebas de hipótesis e inferencia",
+          "Diagnósticos de heterocedasticidad y multicolinealidad",
+          "Endogeneidad y Variables Instrumentales (2SLS)"
+        ],
+        en: [
+          "Multiple Linear Regression Model",
+          "Properties of the OLS Estimator",
+          "Hypothesis Testing and Statistical Inference",
+          "Heteroskedasticity & Multicollinearity Diagnostics",
+          "Endogeneity and Instrumental Variables (2SLS)"
+        ]
+      }
     },
     {
       code: "ECON-401",
-      name: "Econometría II",
+      name: {
+        es: "Econometría II",
+        en: "Advanced Econometrics II"
+      },
       level: "undergraduate",
-      degree: "Pregrado en Economía",
-      semester: "Semestral",
-      description: "Cátedra avanzada de modelos para variables cualitativas y dependientes limitadas, series de tiempo macroeconómicas y datos de panel con aplicaciones empíricas en Colombia.",
-      objectives: [
-        "Estimar e interpretar modelos de elección discreta binaria y multinomial (Logit, Probit).",
-        "Aplicar corrección de sesgo de selección muestral (metodología Heckman en dos etapas).",
-        "Modelar procesos estocásticos no estacionarios, pruebas de raíz unitaria y cointegración.",
-        "Estimar modelos de datos de panel estáticos (Efectos Fijos/Aleatorios) y dinámicos (GMM)."
-      ],
+      degree: {
+        es: "Pregrado en Economía",
+        en: "B.S. in Economics"
+      },
+      semester: {
+        es: "Semestral",
+        en: "Semester-based"
+      },
+      description: {
+        es: "Cátedra avanzada de modelos para variables cualitativas y dependientes limitadas, series de tiempo macroeconómicas y datos de panel con aplicaciones empíricas en Colombia.",
+        en: "Advanced course covering qualitative and limited dependent variable models, macroeconomic time series, and panel data with empirical applications to Colombia."
+      },
+      objectives: {
+        es: [
+          "Estimar e interpretar modelos de elección discreta binaria y multinomial (Logit, Probit).",
+          "Aplicar corrección de sesgo de selección muestral (metodología Heckman en dos etapas).",
+          "Modelar procesos estocásticos no estacionarios, pruebas de raíz unitaria y cointegración.",
+          "Estimar modelos de datos de panel estáticos (Efectos Fijos/Aleatorios) y dinámicos (GMM)."
+        ],
+        en: [
+          "Estimate and interpret binary and multinomial discrete choice models (Logit, Probit).",
+          "Apply sample selection bias correction (Heckman two-step methodology).",
+          "Model non-stationary stochastic processes, unit root testing, and cointegration.",
+          "Estimate static panel data models (Fixed/Random Effects) and dynamic panels (GMM)."
+        ]
+      },
       software: ["Stata 18", "R (paquetes plm, urca, vars)"],
-      datasets: ["Encuesta de Calidad de Vida (ECV)", "GEIH Longitudinal", "Series Financieras BanRep"],
-      topics: [
-        "Modelos de Elección Discreta (Logit / Probit)",
-        "Modelos de Selección Muestral (Heckman)",
-        "Series de Tiempo Univariadas (ARIMA) y Multivariadas (VAR)",
-        "Datos de Panel Estáticos y Dinámicos"
-      ]
+      datasets: {
+        es: ["Encuesta de Calidad de Vida (ECV)", "GEIH Longitudinal", "Series Financieras BanRep"],
+        en: ["Living Standards Survey (ECV)", "Longitudinal GEIH", "BanRep Financial Series"]
+      },
+      topics: {
+        es: [
+          "Modelos de Elección Discreta (Logit / Probit)",
+          "Modelos de Selección Muestral (Heckman)",
+          "Series de Tiempo Univariadas (ARIMA) y Multivariadas (VAR)",
+          "Datos de Panel Estáticos y Dinámicos"
+        ],
+        en: [
+          "Discrete Choice Models (Logit / Probit)",
+          "Sample Selection Models (Heckman)",
+          "Univariate (ARIMA) and Multivariate (VAR) Time Series",
+          "Static and Dynamic Panel Data"
+        ]
+      }
     },
     {
       code: "ECON-302",
-      name: "Teoría Macroeconómica II",
+      name: {
+        es: "Teoría Macroeconómica II",
+        en: "Macroeconomic Theory II"
+      },
       level: "undergraduate",
-      degree: "Pregrado en Economía",
-      semester: "Semestral",
-      description: "Estudio de las teorías de crecimiento económico de largo plazo, fundamentos microeconómicos del consumo y la inversión, y fluctuaciones cíclicas en economías abiertas.",
-      objectives: [
-        "Resolver analíticamente el modelo neoclásico de Solow-Swan y evaluar convergencia.",
-        "Modelar decisiones intertemporales de consumo (hipótesis del ingreso permanente).",
-        "Analizar los mecanismos de transmisión de la política fiscal y monetaria en economía abierta."
-      ],
+      degree: {
+        es: "Pregrado en Economía",
+        en: "B.S. in Economics"
+      },
+      semester: {
+        es: "Semestral",
+        en: "Semester-based"
+      },
+      description: {
+        es: "Estudio de las teorías de crecimiento económico de largo plazo, fundamentos microeconómicos del consumo y la inversión, y fluctuaciones cíclicas en economías abiertas.",
+        en: "Study of long-run economic growth theories, microeconomic foundations of consumption and investment, and cyclical fluctuations in open economies."
+      },
+      objectives: {
+        es: [
+          "Resolver analíticamente el modelo neoclásico de Solow-Swan y evaluar convergencia.",
+          "Modelar decisiones intertemporales de consumo (hipótesis del ingreso permanente).",
+          "Analizar los mecanismos de transmisión de la política fiscal y monetaria en economía abierta."
+        ],
+        en: [
+          "Analytically solve the neoclassical Solow-Swan model and evaluate empirical convergence.",
+          "Model intertemporal consumption decisions (permanent income hypothesis).",
+          "Analyze transmission mechanisms of fiscal and monetary policy in an open economy."
+        ]
+      },
       software: ["R (Visualización de Series)", "Excel Financiero"],
-      datasets: ["FRED Federal Reserve", "Banco de la República de Colombia", "Penn World Table"],
-      topics: [
-        "Modelo de Solow-Swan y Convergencia",
-        "Modelos de Crecimiento Endógeno (AK, R&D)",
-        "Microfundamentos del Consumo y de la Inversión",
-        "Modelo Mundell-Fleming en Economía Abierta"
-      ]
+      datasets: {
+        es: ["FRED Federal Reserve", "Banco de la República de Colombia", "Penn World Table"],
+        en: ["FRED Federal Reserve", "Central Bank of Colombia", "Penn World Table"]
+      },
+      topics: {
+        es: [
+          "Modelo de Solow-Swan y Convergencia",
+          "Modelos de Crecimiento Endógeno (AK, R&D)",
+          "Microfundamentos del Consumo y de la Inversión",
+          "Modelo Mundell-Fleming en Economía Abierta"
+        ],
+        en: [
+          "Solow-Swan Model and Convergence",
+          "Endogenous Growth Models (AK, R&D)",
+          "Microeconomic Foundations of Consumption and Investment",
+          "Mundell-Fleming Model in Open Economies"
+        ]
+      }
     },
     {
       code: "MBA-602",
-      name: "Entorno Económico de los Negocios",
+      name: {
+        es: "Entorno Económico de los Negocios",
+        en: "Economic Environment of Business"
+      },
       level: "graduate",
-      degree: "Maestría en Administración de Empresas (MBA)",
-      semester: "Anual",
-      description: "Análisis aplicado de variables macroeconómicas globales y locales, política monetaria, régimen cambiario y ciclos productivos para la toma de decisiones gerenciales en América Latina.",
-      objectives: [
-        "Interpretar informes de inflación, tasas de interés de bancos centrales y cuentas nacionales.",
-        "Evaluar el impacto de choques externos y términos de intercambio en la rentabilidad empresarial.",
-        "Formular estrategias de cobertura cambiaria y planeación financiera de mediano plazo."
-      ],
+      degree: {
+        es: "Maestría en Administración de Empresas (MBA)",
+        en: "Master of Business Administration (MBA)"
+      },
+      semester: {
+        es: "Anual",
+        en: "Annual"
+      },
+      description: {
+        es: "Análisis aplicado de variables macroeconómicas globales y locales, política monetaria, régimen cambiario y ciclos productivos para la toma de decisiones gerenciales en América Latina.",
+        en: "Applied analysis of global and local macroeconomic indicators, monetary policy, exchange rate regimes, and business cycles for executive decision-making in Latin America."
+      },
+      objectives: {
+        es: [
+          "Interpretar informes de inflación, tasas de interés de bancos centrales y cuentas nacionales.",
+          "Evaluar el impacto de choques externos y términos de intercambio en la rentabilidad empresarial.",
+          "Formular estrategias de cobertura cambiaria y planeación financiera de mediano plazo."
+        ],
+        en: [
+          "Interpret central bank inflation reports, policy interest rates, and national accounts.",
+          "Evaluate the impact of external shocks and terms of trade on business profitability.",
+          "Formulate foreign exchange hedging strategies and medium-term corporate financial plans."
+        ]
+      },
       software: ["Stata", "Plataformas de Datos Macroeconómicos"],
-      datasets: ["Estadísticas del Banco de la República", "World Economic Outlook (FMI)", "DANE"],
-      topics: [
-        "Ciclos Macroeconómicos e Indicadores Líderes",
-        "Política Monetaria y Tasas de Interés",
-        "Mercado Cambiario y Balanza de Pagos",
-        "Toma de Decisiones Estratégicas ante Escenarios Macroeconómicos"
-      ]
+      datasets: {
+        es: ["Estadísticas del Banco de la República", "World Economic Outlook (FMI)", "DANE"],
+        en: ["Central Bank of Colombia Statistics", "IMF World Economic Outlook", "DANE"]
+      },
+      topics: {
+        es: [
+          "Ciclos Macroeconómicos e Indicadores Líderes",
+          "Política Monetaria y Tasas de Interés",
+          "Mercado Cambiario y Balanza de Pagos",
+          "Toma de Decisiones Estratégicas ante Escenarios Macroeconómicos"
+        ],
+        en: [
+          "Macroeconomic Cycles and Leading Indicators",
+          "Monetary Policy and Interest Rates",
+          "Foreign Exchange Market and Balance of Payments",
+          "Strategic Decision-Making Under Macroeconomic Scenarios"
+        ]
+      }
     },
     {
       code: "DOC-801",
-      name: "Econometría Aplicada a la Investigación de Negocios",
+      name: {
+        es: "Econometría Aplicada a la Investigación de Negocios",
+        en: "Applied Econometrics for Business Research"
+      },
       level: "graduate",
-      degree: "Doctorado en Economía de los Negocios",
-      semester: "Semestral",
-      description: "Seminario doctoral metodológico para la formulación, diseño muestral y estimación rigurosa de tesis empíricas en economía aplicada y finanzas corporativas.",
-      objectives: [
-        "Estructurar estrategias de identificación causal creíbles con datos observacionales.",
-        "Dominar técnicas avanzadas de econometría espacial y modelos lineales generalizados.",
-        "Redactar artículos científicos conforme a los estándares de journals Q1/Q2."
-      ],
+      degree: {
+        es: "Doctorado en Economía de los Negocios",
+        en: "Ph.D. in Business Economics"
+      },
+      semester: {
+        es: "Semestral",
+        en: "Semester-based"
+      },
+      description: {
+        es: "Seminario doctoral metodológico para la formulación, diseño muestral y estimación rigurosa de tesis empíricas en economía aplicada y finanzas corporativas.",
+        en: "Doctoral methodological seminar for the formulation, sampling design, and rigorous estimation of empirical dissertations in applied economics and corporate finance."
+      },
+      objectives: {
+        es: [
+          "Estructurar estrategias de identificación causal creíbles con datos observacionales.",
+          "Dominar técnicas avanzadas de econometría espacial y modelos lineales generalizados.",
+          "Redactar artículos científicos conforme a los estándares de journals Q1/Q2."
+        ],
+        en: [
+          "Structure credible causal identification strategies with observational data.",
+          "Master advanced spatial econometrics techniques and generalized linear models.",
+          "Author scientific papers adhering to international Q1/Q2 journal standards."
+        ]
+      },
       software: ["R (spatialreg, sf, fixest)", "Stata 18"],
-      datasets: ["Microdatos administrativos colombianos", "Bases de Tesis Doctorales Icesi"],
-      topics: [
-        "Inferencia Causal y Métodos Cuasiexperimentales",
-        "Econometría Espacial Aplicada",
-        "Datos de Panel con Efectos Fijos Multidireccionales",
-        "Replicación y Transparencia Científica"
-      ]
+      datasets: {
+        es: ["Microdatos administrativos colombianos", "Bases de Tesis Doctorales Icesi"],
+        en: ["Colombian administrative microdata", "Icesi Doctoral Dissertation Repositories"]
+      },
+      topics: {
+        es: [
+          "Inferencia Causal y Métodos Cuasiexperimentales",
+          "Econometría Espacial Aplicada",
+          "Datos de Panel con Efectos Fijos Multidireccionales",
+          "Replicación y Transparencia Científica"
+        ],
+        en: [
+          "Causal Inference and Quasi-Experimental Methods",
+          "Applied Spatial Econometrics",
+          "Panel Data with High-Dimensional Fixed Effects",
+          "Scientific Replication and Open Research Practices"
+        ]
+      }
     }
   ] as Course[],
 
@@ -637,56 +844,80 @@ export const portfolioData = {
     publisher: "Ecoe Ediciones, Bogotá, Colombia",
     isbn: "978-958-503-348-1",
     authors: ["Carlos Giovanni González Espitia", "Héctor Ochoa"],
-    description: "Texto guía adoptado en programas de pregrado, posgrado y MBA en universidades de América Latina. Desarrolla de manera didáctica y rigurosa la teoría macroeconómica moderna adaptada al contexto de economías emergentes de la región andina y latinoamericana.",
+    description: {
+      es: "Texto guía adoptado en programas de pregrado, posgrado y MBA en universidades de América Latina. Desarrolla de manera didáctica y rigurosa la teoría macroeconómica moderna adaptada al contexto de economías emergentes de la región andina y latinoamericana.",
+      en: "Standard textbook adopted across undergraduate, graduate, and MBA programs in Latin American universities. Rigorously presents modern macroeconomic theory tailored to the emerging economies of Latin America and the Andean region."
+    },
     link: "https://www.ecoeediciones.com/libros/macroeconomia-para-la-gerencia-latinoamericana-2da-edicion-impreso/"
   } as Book,
 
   careerMilestones: [
     {
       year: "2022 - Presente",
-      role: "Profesor Titular de Economía (Full Professor)",
+      role: {
+        es: "Profesor Titular de Economía (Full Professor)",
+        en: "Full Professor of Economics"
+      },
       institution: "Universidad Icesi",
       location: "Cali, Colombia",
       type: "position"
     },
     {
       year: "2016 - 2021",
-      role: "Profesor Asociado",
+      role: {
+        es: "Profesor Asociado",
+        en: "Associate Professor"
+      },
       institution: "Universidad Icesi",
       location: "Cali, Colombia",
       type: "position"
     },
     {
       year: "2011",
-      role: "Ph.D. in Economics (Doctor en Economía)",
+      role: {
+        es: "Ph.D. in Economics (Doctor en Economía)",
+        en: "Ph.D. in Economics"
+      },
       institution: "Universidad de Alcalá",
       location: "Madrid, España",
       type: "education"
     },
     {
       year: "2009 - 2015",
-      role: "Profesor Asistente de Economía",
+      role: {
+        es: "Profesor Asistente de Economía",
+        en: "Assistant Professor of Economics"
+      },
       institution: "Universidad Icesi",
       location: "Cali, Colombia",
       type: "position"
     },
     {
       year: "2008 - 2009",
-      role: "Profesor Asistente",
+      role: {
+        es: "Profesor Asistente",
+        en: "Assistant Professor"
+      },
       institution: "Universidad Europea de Madrid",
       location: "Madrid, España",
       type: "position"
     },
     {
       year: "2006",
-      role: "M.A. in Economics (Diploma de Estudios Avanzados)",
+      role: {
+        es: "M.A. in Economics (Diploma de Estudios Avanzados)",
+        en: "M.A. in Economics (Advanced Studies Diploma)"
+      },
       institution: "Universidad de Alcalá",
       location: "Madrid, España",
       type: "education"
     },
     {
       year: "2002",
-      role: "Economista (Grado Profesional con Distinción)",
+      role: {
+        es: "Economista (Grado Profesional con Distinción)",
+        en: "B.S. in Economics (Graduated with Honors)"
+      },
       institution: "Universidad Autónoma de Occidente",
       location: "Cali, Colombia",
       type: "education"
@@ -697,87 +928,180 @@ export const portfolioData = {
     {
       name: "IDEAS / RePEc",
       platform: "Research Papers in Economics",
-      badge: "Top 100 Investigadores Colombia",
+      badge: {
+        es: "Top 100 Investigadores Colombia",
+        en: "Top 100 Economists Colombia"
+      },
       url: "https://ideas.repec.org/f/pgo316.html",
-      description: "Registro bibliográfico integral, working papers y ranking nacional según citas bibliométricas y descargas acumuladas."
+      description: {
+        es: "Registro bibliográfico integral, working papers y ranking nacional según citas bibliométricas y descargas acumuladas.",
+        en: "Comprehensive bibliographic records, working papers, and national ranking based on citations and downloads."
+      }
     },
     {
       name: "Google Scholar",
       platform: "Citas Académicas & H-Index",
-      badge: "Citas Verificadas",
+      badge: {
+        es: "Citas Verificadas",
+        en: "Verified Citations"
+      },
       url: "https://scholar.google.com.co/citations?user=vdbPZNkAAAAJ&hl=en",
-      description: "Catálogo de citaciones, índice h e índice i10 de artículos científicos en revistas arbitradas por pares."
+      description: {
+        es: "Catálogo de citaciones, índice h e índice i10 de artículos científicos en revistas arbitradas por pares.",
+        en: "Citation metrics, h-index, and i10-index of peer-reviewed journal articles."
+      }
     },
     {
       name: "Icesi Research Portal",
       platform: "Universidad Icesi",
-      badge: "Registro Institucional",
+      badge: {
+        es: "Registro Institucional",
+        en: "Institutional Registry"
+      },
       url: "https://icesi.portalinvestigacion.com/investigadores/1742",
-      description: "Registro oficial de producción científica, 42 tesis dirigidas y proyectos de investigación adscritos al grupo A1."
+      description: {
+        es: "Registro oficial de producción científica, 42 tesis dirigidas y proyectos de investigación adscritos al grupo A1.",
+        en: "Official university research registry, 42 supervised theses, and A1 category research group projects."
+      }
     },
     {
       name: "CvLAC MinCiencias",
       platform: "Ministerio de Ciencia, Tecnología e Innovación",
-      badge: "Investigador Asociado",
+      badge: {
+        es: "Investigador Asociado",
+        en: "Associate Researcher"
+      },
       url: "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000180629",
-      description: "Currículum oficial avalado en el Sistema Nacional de Ciencia, Tecnología e Innovación de Colombia."
+      description: {
+        es: "Currículum oficial avalado en el Sistema Nacional de Ciencia, Tecnología e Innovación de Colombia.",
+        en: "Official verified curriculum in Colombia's National Science, Technology, and Innovation System."
+      }
     },
     {
       name: "Red de Investigadores BanRep",
       platform: "Banco de la República de Colombia",
-      badge: "Red de Investigadores",
+      badge: {
+        es: "Red de Investigadores",
+        en: "Central Bank Network"
+      },
       url: "https://www.redinvestigadores.org/display/pgo316",
-      description: "Perfil en la red nacional de investigadores en macroeconomía, banca central y economía aplicada."
+      description: {
+        es: "Perfil en la red nacional de investigadores en macroeconomía, banca central y economía aplicada.",
+        en: "Profile in the Colombian central bank's network for macroeconomics and applied economics."
+      }
     },
     {
       name: "LinkedIn Oficial",
       platform: "Red Profesional",
-      badge: "Contacto Académico",
+      badge: {
+        es: "Contacto Académico",
+        en: "Academic Contact"
+      },
       url: "https://www.linkedin.com/in/carlos-giovanni-gonzalez-espitia/",
-      description: "Red profesional para vinculaciones académicas, seminarios de investigación y contacto institucional."
+      description: {
+        es: "Red profesional para vinculaciones académicas, seminarios de investigación y contacto institucional.",
+        en: "Professional network for academic collaborations, research seminars, and institutional inquiries."
+      }
     }
   ] as AcademicProfile[],
 
   latestUpdates: [
     {
-      date: "Septiembre 2024",
-      title: "Nuevo Working Paper en Economía de la Educación",
-      description: "Finalizado el manuscrito sobre retornos privados a la educación heterogéneos en Colombia (2008-2021) en coautoría con egresados Icesi."
+      date: {
+        es: "Septiembre 2024",
+        en: "September 2024"
+      },
+      title: {
+        es: "Nuevo Working Paper en Economía de la Educación",
+        en: "New Working Paper in Economics of Education"
+      },
+      description: {
+        es: "Finalizado el manuscrito sobre retornos privados a la educación heterogéneos en Colombia (2008-2021) en coautoría con egresados Icesi.",
+        en: "Manuscript completed on heterogeneous private returns to education in Colombia (2008-2021) co-authored with Icesi alumni."
+      }
     },
     {
-      date: "Agosto 2024",
-      title: "Seminario de Investigación y Cátedras 2024-2",
-      description: "Inicio de los laboratorios de Econometría y Macroeconomía con microdatos de la GEIH y series del Banco de la República."
+      date: {
+        es: "Agosto 2024",
+        en: "August 2024"
+      },
+      title: {
+        es: "Seminario de Investigación y Cátedras 2024-2",
+        en: "Research Seminar and 2024-2 Courses"
+      },
+      description: {
+        es: "Inicio de los laboratorios de Econometría y Macroeconomía con microdatos de la GEIH y series del Banco de la República.",
+        en: "Commencement of Econometrics and Macroeconomics labs utilizing GEIH microdata and Banco de la República time series."
+      }
     },
     {
-      date: "Julio 2024",
-      title: "Asesoría de Tesis Doctorales",
-      description: "Avance de defensas de propuesta en el Doctorado en Economía de los Negocios sobre economía urbana y crimen."
+      date: {
+        es: "Julio 2024",
+        en: "July 2024"
+      },
+      title: {
+        es: "Asesoría de Tesis Doctorales",
+        en: "Doctoral Dissertation Advising"
+      },
+      description: {
+        es: "Avance de defensas de propuesta en el Doctorado en Economía de los Negocios sobre economía urbana y crimen.",
+        en: "Proposal defense milestones in the Ph.D. in Business Economics program covering urban economics and crime."
+      }
     }
   ],
 
   econometricsWithR: {
-    title: "Econometría con R & Laboratorio Computacional",
-    intro: "Espacio dedicado a la democratización del aprendizaje de la econometría moderna usando R, RStudio y Quarto/RMarkdown con enfoque replicable y código abierto.",
+    title: {
+      es: "Econometría con R & Laboratorio Computacional",
+      en: "Econometrics with R & Computational Lab"
+    },
+    intro: {
+      es: "Espacio dedicado a la democratización del aprendizaje de la econometría moderna usando R, RStudio y Quarto/RMarkdown con enfoque replicable y código abierto.",
+      en: "Platform dedicated to the democratization of modern econometrics education using R, RStudio, and Quarto/RMarkdown with open-source and reproducible practices."
+    },
     resources: [
       {
-        title: "Introducción a R para Economistas",
-        desc: "Manejo de estructuras de datos (data frames, tibbles, vectores), manipulación con tidyverse (dplyr, tidyr) y visualización con ggplot2.",
+        title: {
+          es: "Introducción a R para Economistas",
+          en: "Introduction to R for Economists"
+        },
+        desc: {
+          es: "Manejo de estructuras de datos (data frames, tibbles, vectores), manipulación con tidyverse (dplyr, tidyr) y visualización con ggplot2.",
+          en: "Data structures management (data frames, tibbles, vectors), wrangling with tidyverse (dplyr, tidyr), and visualization with ggplot2."
+        },
         tools: ["R", "RStudio", "tidyverse"]
       },
       {
-        title: "Regresión Lineal y Diagnósticos en R",
-        desc: "Estimación con lm(), pruebas de heterocedasticidad (bptest), autocorrelación (dwtest) y errores estándar robustos (sandwich, lmtest).",
+        title: {
+          es: "Regresión Lineal y Diagnósticos en R",
+          en: "Linear Regression & Diagnostics in R"
+        },
+        desc: {
+          es: "Estimación con lm(), pruebas de heterocedasticidad (bptest), autocorrelación (dwtest) y errores estándar robustos (sandwich, lmtest).",
+          en: "Estimation using lm(), heteroskedasticity testing (bptest), autocorrelation (dwtest), and robust standard errors (sandwich, lmtest)."
+        },
         tools: ["lmtest", "sandwich", "stargazer"]
       },
       {
-        title: "Econometría Espacial en R",
-        desc: "Matrices de contigüidad espacial, I de Moran, estimación de modelos SAR, SEM y Spatial Durbin con sf y spatialreg.",
+        title: {
+          es: "Econometría Espacial en R",
+          en: "Spatial Econometrics in R"
+        },
+        desc: {
+          es: "Matrices de contigüidad espacial, I de Moran, estimación de modelos SAR, SEM y Spatial Durbin con sf y spatialreg.",
+          en: "Spatial contiguity matrices, Moran's I, estimation of SAR, SEM, and Spatial Durbin models with sf and spatialreg."
+        },
         tools: ["spatialreg", "sf", "spdep"]
       },
       {
-        title: "Modelos de Panel y Variables Instrumentales",
-        desc: "Estimación con plm y AER (ivreg), pruebas de Hausman y estimación 2SLS.",
+        title: {
+          es: "Modelos de Panel y Variables Instrumentales",
+          en: "Panel Data Models & Instrumental Variables"
+        },
+        desc: {
+          es: "Estimación con plm y AER (ivreg), pruebas de Hausman y estimación 2SLS.",
+          en: "Panel estimation with plm and AER (ivreg), Hausman specification tests, and 2SLS estimation."
+        },
         tools: ["plm", "AER"]
       }
     ]

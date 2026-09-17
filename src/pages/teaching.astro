@@ -15,23 +15,23 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
   <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
     <!-- Page Header -->
     <div style="margin-bottom: 3.5rem; max-width: 820px;">
-      <span class="badge badge-status" style="margin-bottom: 0.75rem;">
-        Academic Teaching Portfolio
+      <span class="badge badge-status" style="margin-bottom: 0.75rem;" data-lang-es="Portafolio Docente Académico" data-lang-en="Academic Teaching Portfolio">
+        Portafolio Docente Académico
       </span>
-      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;">
+      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;" data-lang-es="Docencia & Cursos Universitarios" data-lang-en="Teaching & University Courses">
         Docencia & Cursos Universitarios
       </h1>
-      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;">
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;" data-lang-es="Formación rigurosa en econometría, teoría macroeconómica y análisis empírico con laboratorios semanales y microdatos oficiales de Colombia." data-lang-en="Rigorous education in econometrics, macroeconomic theory, and empirical analysis featuring weekly computing labs with official Colombian microdata.">
         Formación rigurosa en econometría, teoría macroeconómica y análisis empírico con laboratorios semanales y microdatos oficiales de Colombia.
       </p>
     </div>
 
     <!-- Filosofía Docente -->
     <section class="card card-highlight" style="margin-bottom: 4.5rem; padding: 2rem 2.5rem;">
-      <h2 class="font-serif" style="font-size: 1.6rem; margin-bottom: 0.5rem;">
+      <h2 class="font-serif" style="font-size: 1.6rem; margin-bottom: 0.5rem;" data-lang-es="Metodología: Rigor Matemático + Laboratorio Empírico" data-lang-en="Methodology: Mathematical Rigor + Empirical Lab">
         Metodología: Rigor Matemático + Laboratorio Empírico
       </h2>
-      <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+      <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;" data-lang-es="Cada cátedra combina la deducción formal de teoremas y estimadores con el análisis aplicado sobre datos reales del DANE, ICFES y Banco de la República. El objetivo es que los estudiantes dominen tanto la intuición económica como la computación científica reproducible." data-lang-en="Each course combines formal analytical proofs of theorems and estimators with hands-on empirical applications using real-world microdata from DANE, ICFES, and Banco de la República. The objective is for students to master both economic intuition and reproducible scientific computing.">
         Cada cátedra combina la deducción formal de teoremas y estimadores con el análisis aplicado sobre datos reales del DANE, ICFES y Banco de la República. El objetivo es que los estudiantes dominen tanto la intuición económica como la computación científica reproducible.
       </p>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
@@ -53,8 +53,8 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
     <!-- 1. Cursos de Pregrado -->
     <section id="undergraduate" style="margin-bottom: 4.5rem;">
       <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Pregrado en Economía & Finanzas</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Pregrado en Economía & Finanzas" data-lang-en="Undergraduate in Economics & Finance">Pregrado en Economía & Finanzas</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Cátedras de fundamentación y nivel intermedio-avanzado en la Universidad Icesi." data-lang-en="Foundational and intermediate-advanced courses at Universidad Icesi.">
           Cátedras de fundamentación y nivel intermedio-avanzado en la Universidad Icesi.
         </p>
       </div>
@@ -65,32 +65,32 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
             <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
               <div>
                 <span class="badge badge-status font-mono" style="font-size: 0.75rem; margin-right: 0.5rem;">{c.code}</span>
-                <span class="badge badge-q2 font-mono" style="font-size: 0.72rem;">{c.semester}</span>
+                <span class="badge badge-q2 font-mono" style="font-size: 0.72rem;" data-lang-es={c.semester.es} data-lang-en={c.semester.en}>{c.semester.es}</span>
               </div>
-              <span style="font-size: 0.85rem; color: var(--text-muted);">{c.degree}</span>
+              <span style="font-size: 0.85rem; color: var(--text-muted);" data-lang-es={c.degree.es} data-lang-en={c.degree.en}>{c.degree.es}</span>
             </div>
 
-            <h3 class="font-serif" style="font-size: 1.45rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-              {c.name}
+            <h3 class="font-serif" style="font-size: 1.45rem; color: var(--text-primary); margin-bottom: 0.75rem;" data-lang-es={c.name.es} data-lang-en={c.name.en}>
+              {c.name.es}
             </h3>
 
-            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;">
-              {c.description}
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;" data-lang-es={c.description.es} data-lang-en={c.description.en}>
+              {c.description.es}
             </p>
 
             <div class="grid-2" style="background: var(--bg-tertiary); padding: 1.25rem; border-radius: var(--radius-md); gap: 1.5rem; margin-bottom: 1rem;">
               <div>
-                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;" data-lang-es="Objetivos de Aprendizaje:" data-lang-en="Learning Objectives:">
                   Objetivos de Aprendizaje:
                 </h4>
                 <ul style="padding-left: 1.2rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-                  {c.objectives.map((obj) => (
-                    <li>{obj}</li>
+                  {c.objectives.es.map((obj, i) => (
+                    <li data-lang-es={obj} data-lang-en={c.objectives.en[i]}>{obj}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;" data-lang-es="Microdatos & Software:" data-lang-en="Microdata & Software:">
                   Microdatos & Software:
                 </h4>
                 <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
@@ -99,18 +99,21 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
                   ))}
                 </div>
                 <p style="font-size: 0.82rem; color: var(--text-muted);">
-                  Bases de datos: {c.datasets.join(', ')}
+                  <strong data-lang-es="Bases de datos: " data-lang-en="Datasets: ">Bases de datos: </strong>
+                  <span data-lang-es={c.datasets.es.join(', ')} data-lang-en={c.datasets.en.join(', ')}>
+                    {c.datasets.es.join(', ')}
+                  </span>
                 </p>
               </div>
             </div>
 
             <div>
-              <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">
+              <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;" data-lang-es="Módulos del Syllabus:" data-lang-en="Syllabus Modules:">
                 Módulos del Syllabus:
               </h4>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                {c.topics.map((top) => (
-                  <span class="badge badge-status" style="font-size: 0.78rem;">
+                {c.topics.es.map((top, i) => (
+                  <span class="badge badge-status" style="font-size: 0.78rem;" data-lang-es={top} data-lang-en={c.topics.en[i]}>
                     {top}
                   </span>
                 ))}
@@ -124,8 +127,8 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
     <!-- 2. Cursos de Posgrado & MBA -->
     <section id="graduate">
       <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Posgrados, MBA & Doctorado</h2>
-        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;" data-lang-es="Posgrados, MBA & Doctorado" data-lang-en="Graduate, MBA & Ph.D. Programs">Posgrados, MBA & Doctorado</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;" data-lang-es="Formación gerencial avanzada y seminarios doctorales de investigación cuantitativa." data-lang-en="Advanced managerial training and doctoral quantitative research seminars.">
           Formación gerencial avanzada y seminarios doctorales de investigación cuantitativa.
         </p>
       </div>
@@ -136,32 +139,32 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
             <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
               <div>
                 <span class="badge badge-status font-mono" style="font-size: 0.75rem; margin-right: 0.5rem;">{c.code}</span>
-                <span class="badge badge-q1 font-mono" style="font-size: 0.72rem;">{c.semester}</span>
+                <span class="badge badge-q1 font-mono" style="font-size: 0.72rem;" data-lang-es={c.semester.es} data-lang-en={c.semester.en}>{c.semester.es}</span>
               </div>
-              <span style="font-size: 0.85rem; color: var(--accent-primary); font-weight: 600;">{c.degree}</span>
+              <span style="font-size: 0.85rem; color: var(--accent-primary); font-weight: 600;" data-lang-es={c.degree.es} data-lang-en={c.degree.en}>{c.degree.es}</span>
             </div>
 
-            <h3 class="font-serif" style="font-size: 1.45rem; color: var(--text-primary); margin-bottom: 0.75rem;">
-              {c.name}
+            <h3 class="font-serif" style="font-size: 1.45rem; color: var(--text-primary); margin-bottom: 0.75rem;" data-lang-es={c.name.es} data-lang-en={c.name.en}>
+              {c.name.es}
             </h3>
 
-            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;">
-              {c.description}
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;" data-lang-es={c.description.es} data-lang-en={c.description.en}>
+              {c.description.es}
             </p>
 
             <div class="grid-2" style="background: var(--bg-tertiary); padding: 1.25rem; border-radius: var(--radius-md); gap: 1.5rem; margin-bottom: 1rem;">
               <div>
-                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;" data-lang-es="Competencias Formativas:" data-lang-en="Core Competencies:">
                   Competencias Formativas:
                 </h4>
                 <ul style="padding-left: 1.2rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-                  {c.objectives.map((obj) => (
-                    <li>{obj}</li>
+                  {c.objectives.es.map((obj, i) => (
+                    <li data-lang-es={obj} data-lang-en={c.objectives.en[i]}>{obj}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-primary); margin-bottom: 0.5rem;" data-lang-es="Herramientas y Fuentes:" data-lang-en="Tools & Data Sources:">
                   Herramientas y Fuentes:
                 </h4>
                 <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
@@ -170,18 +173,21 @@ const graduateCourses = courses.filter((c) => c.level === 'graduate');
                   ))}
                 </div>
                 <p style="font-size: 0.82rem; color: var(--text-muted);">
-                  {c.datasets.join(', ')}
+                  <strong data-lang-es="Fuentes: " data-lang-en="Sources: ">Fuentes: </strong>
+                  <span data-lang-es={c.datasets.es.join(', ')} data-lang-en={c.datasets.en.join(', ')}>
+                    {c.datasets.es.join(', ')}
+                  </span>
                 </p>
               </div>
             </div>
 
             <div>
-              <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">
+              <h4 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;" data-lang-es="Módulos del Programa:" data-lang-en="Program Modules:">
                 Módulos del Programa:
               </h4>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                {c.topics.map((top) => (
-                  <span class="badge badge-status" style="font-size: 0.78rem;">
+                {c.topics.es.map((top, i) => (
+                  <span class="badge badge-status" style="font-size: 0.78rem;" data-lang-es={top} data-lang-en={c.topics.en[i]}>
                     {top}
                   </span>
                 ))}

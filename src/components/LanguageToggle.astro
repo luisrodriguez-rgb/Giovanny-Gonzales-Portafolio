@@ -80,13 +80,25 @@
       }
     });
 
-    // Toggle visibility of multilingual elements
+    // Toggle text content of multilingual elements
     document.querySelectorAll('[data-lang-es]').forEach((el) => {
       const htmlEl = el as HTMLElement;
-      if (lang === 'es') {
-        htmlEl.textContent = htmlEl.getAttribute('data-lang-es') || htmlEl.textContent;
-      } else {
-        htmlEl.textContent = htmlEl.getAttribute('data-lang-en') || htmlEl.textContent;
+      const targetText = lang === 'es' 
+        ? htmlEl.getAttribute('data-lang-es') 
+        : htmlEl.getAttribute('data-lang-en');
+      if (targetText !== null && targetText !== undefined) {
+        htmlEl.textContent = targetText;
+      }
+    });
+
+    // Toggle HTML content of multilingual elements
+    document.querySelectorAll('[data-lang-html-es]').forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      const targetHtml = lang === 'es' 
+        ? htmlEl.getAttribute('data-lang-html-es') 
+        : htmlEl.getAttribute('data-lang-html-en');
+      if (targetHtml !== null && targetHtml !== undefined) {
+        htmlEl.innerHTML = targetHtml;
       }
     });
 
@@ -99,6 +111,10 @@
     });
   }
 
-  setupLanguageToggle();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLanguageToggle);
+  } else {
+    setupLanguageToggle();
+  }
   document.addEventListener('astro:after-swap', setupLanguageToggle);
 </script>
