@@ -6,23 +6,21 @@ import InstitutionLogo from './InstitutionLogo.astro';
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
-  { href: '/', labelEs: 'Inicio', labelEn: 'Home' },
-  { href: '/research', labelEs: 'Investigación & Publicaciones', labelEn: 'Research & Publications' },
+  { href: '/research', labelEs: 'Investigación', labelEn: 'Research' },
   { href: '/teaching', labelEs: 'Docencia', labelEn: 'Teaching' },
-  { href: '/students', labelEs: 'Tesistas & Asesorías', labelEn: 'Students & Advising' },
-  { href: '/r-lab', labelEs: 'Laboratorio R', labelEn: 'R & Stata Lab' },
   { href: '/resources', labelEs: 'Recursos', labelEn: 'Resources' },
+  { href: '/about', labelEs: 'Acerca de', labelEn: 'About' },
 ];
 ---
 
 <header class="navbar">
   <div class="container navbar-inner">
-    <a href="/" class="navbar-brand">
-      <InstitutionLogo name="icesi" size={28} />
-      <span>Dr. Giovanni González</span>
+    <a href="/" class="navbar-brand" title="Inicio | Dr. Carlos Giovanni González">
+      <span class="brand-name">GIOVANNI GONZÁLEZ</span>
+      <span class="brand-tagline">Economics · Research · Teaching</span>
     </a>
 
-    <nav>
+    <nav aria-label="Navegación principal">
       <ul class="navbar-links">
         {navItems.map((item) => (
           <li>
@@ -41,6 +39,16 @@ const navItems = [
 
     <div class="navbar-actions">
       <LanguageToggle />
+      <a
+        href="https://www.linkedin.com/in/carlos-giovanni-gonzalez-espitia/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="navbar-linkedin-link"
+        title="Perfil en LinkedIn"
+        aria-label="LinkedIn"
+      >
+        <InstitutionLogo name="linkedin" size={16} />
+      </a>
       <ThemeToggle />
     </div>
   </div>
