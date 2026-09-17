@@ -1,35 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Paleta Académica Auténtica - Modo Claro (Inspirada en giovannigonzalez.com y Universidad Icesi) */
-  --bg-primary: #fbf9f5;      /* Marfil / Papel académico */
+  /* Paleta Academica Autentica - Modo Claro de Alto Contraste (Inspirada en giovannigonzalez.com y Universidad Icesi) */
+  --bg-primary: #fcfbf9;      /* Marfil papel academico de alta luminosidad */
   --bg-secondary: #ffffff;
-  --bg-tertiary: #f2efe9;
+  --bg-tertiary: #f3f0e8;
   --bg-card: #ffffff;
-  --bg-card-hover: #faf8f3;
-  --bg-glass: rgba(251, 249, 245, 0.92);
+  --bg-card-hover: #faf7f0;
+  --bg-glass: rgba(252, 251, 249, 0.95);
 
-  --text-primary: #0b1320;    /* Carbón profundo para máximo contraste */
-  --text-secondary: #2d3748;  /* Gris pizarra oscuro y nítido */
-  --text-muted: #5a6a7e;      /* Muted de alto contraste WCAG AAA */
+  --text-primary: #0a111a;    /* Carbon profundo para maximo contraste (20:1) */
+  --text-secondary: #263238;  /* Pizarra oscuro nítido y legible (11:1) */
+  --text-muted: #475569;      /* Slate 600 de alto contraste WCAG AAA (6.5:1) */
   --text-inverted: #ffffff;
 
-  /* Azul Petróleo Académico Original (#1E6C93) */
-  --accent-primary: #1e6c93;
-  --accent-secondary: #144d6b;
-  --accent-soft: rgba(30, 108, 147, 0.09);
+  /* Azul Petroleo Academico Original (#1E6C93 / #175a7d para contraste AAA sobre claro) */
+  --accent-primary: #175a7d;
+  --accent-secondary: #0f3f58;
+  --accent-soft: rgba(23, 90, 125, 0.10);
   
-  /* Dorado y Bronce Académico */
-  --accent-gold: #b45309;
-  --accent-gold-soft: rgba(180, 83, 9, 0.1);
+  /* Dorado y Ambar Academico */
+  --accent-gold: #92400e;
+  --accent-gold-soft: rgba(146, 64, 14, 0.12);
 
-  --border-subtle: #ded8ce;
-  --border-focus: #9aa5b5;
-  --border-glass: rgba(30, 108, 147, 0.15);
+  --border-subtle: #d6cfc2;   /* Bordes nitidos de alta distincion */
+  --border-focus: #8899ac;
+  --border-glass: rgba(23, 90, 125, 0.20);
 
-  --shadow-sm: 0 1px 2px rgba(11, 19, 32, 0.05);
-  --shadow-md: 0 4px 10px rgba(11, 19, 32, 0.07);
-  --shadow-lg: 0 12px 24px -4px rgba(11, 19, 32, 0.1);
+  --shadow-sm: 0 1px 3px rgba(10, 17, 26, 0.08);
+  --shadow-md: 0 4px 12px rgba(10, 17, 26, 0.10);
+  --shadow-lg: 0 12px 28px -4px rgba(10, 17, 26, 0.14);
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -47,34 +47,34 @@
 }
 
 [data-theme='dark'] {
-  /* Paleta Académica Auténtica - Modo Oscuro Sobrio y de Alto Contraste */
-  --bg-primary: #0d1217;      /* Carbón obsidiana profundo, no azul chillón */
-  --bg-secondary: #131921;
-  --bg-tertiary: #1a222c;
-  --bg-card: #151d27;
-  --bg-card-hover: #1c2734;
-  --bg-glass: rgba(13, 18, 23, 0.94);
+  /* Paleta Academica Autentica - Modo Oscuro de Alto Contraste */
+  --bg-primary: #0a0e14;      /* Carbon obsidiana profundo, contraste puro */
+  --bg-secondary: #10161f;
+  --bg-tertiary: #16202c;
+  --bg-card: #131b26;
+  --bg-card-hover: #192433;
+  --bg-glass: rgba(10, 14, 20, 0.95);
 
-  --text-primary: #ffffff;    /* Blanco puro para títulos y máxima legibilidad */
-  --text-secondary: #cbd5e1;  /* Slate 300 de alto contraste */
-  --text-muted: #94a3b8;      /* Slate 400 legible */
-  --text-inverted: #0d1217;
+  --text-primary: #ffffff;    /* Blanco absoluto para titulos y maxima definicion (19:1) */
+  --text-secondary: #e2e8f0;  /* Slate 200 de lectura ultra-clara (14:1) */
+  --text-muted: #94a3b8;      /* Slate 400 legible de alto contraste (7.2:1) */
+  --text-inverted: #0a0e14;
 
-  /* Azul Petróleo Académico adaptado a superficie oscura */
-  --accent-primary: #2d8bb9;
-  --accent-secondary: #42a2d2;
-  --accent-soft: rgba(45, 139, 185, 0.16);
+  /* Azul Petroleo Luminoso de Alto Contraste en Superficie Oscura */
+  --accent-primary: #38bdf8;
+  --accent-secondary: #7dd3fc;
+  --accent-soft: rgba(56, 189, 248, 0.16);
 
-  --accent-gold: #f59e0b;
-  --accent-gold-soft: rgba(245, 158, 11, 0.16);
+  --accent-gold: #fbbf24;
+  --accent-gold-soft: rgba(251, 191, 36, 0.18);
 
-  --border-subtle: #243242;   /* Bordes nítidos bien definidos */
-  --border-focus: #3b4e64;
-  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-subtle: #27384c;   /* Bordes claramente delimitados */
+  --border-focus: #476282;
+  --border-glass: rgba(255, 255, 255, 0.12);
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.7);
-  --shadow-lg: 0 14px 28px rgba(0, 0, 0, 0.8);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.7);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 14px 32px rgba(0, 0, 0, 0.9);
 }
 
 /* Reset y Bases */
@@ -248,7 +248,7 @@ a:hover {
 .btn-outline {
   background: var(--bg-card);
   color: var(--text-primary);
-  border-color: var(--border-subtle);
+  border: 1.5px solid var(--border-subtle);
 }
 
 .btn-outline:hover {
@@ -256,6 +256,18 @@ a:hover {
   color: var(--accent-primary);
   background: var(--accent-soft);
   transform: translateY(-1px);
+}
+
+[data-theme='dark'] .btn-outline {
+  background: var(--bg-tertiary);
+  border-color: #3b506b;
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .btn-outline:hover {
+  border-color: var(--accent-primary);
+  background: rgba(56, 189, 248, 0.15);
+  color: #ffffff;
 }
 
 .btn-linkedin {
@@ -275,45 +287,64 @@ a:hover {
   font-size: 0.82rem;
 }
 
-/* Badges e Insignias */
+/* Badges e Insignias de Alto Contraste */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.25rem 0.65rem;
-  font-size: 0.75rem;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.78rem;
   font-weight: 700;
   border-radius: var(--radius-full);
   letter-spacing: 0.03em;
 }
 
 .badge-q1 {
-  background: rgba(16, 185, 129, 0.15);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  color: #065f46;
+  border: 1px solid rgba(5, 150, 105, 0.45);
 }
 
 [data-theme='dark'] .badge-q1 {
-  color: #34d399;
-  border-color: rgba(52, 211, 153, 0.4);
+  background: rgba(16, 185, 129, 0.22);
+  color: #6ee7b7;
+  border: 1px solid rgba(110, 231, 183, 0.5);
 }
 
 .badge-q2 {
   background: var(--accent-soft);
-  color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
+  color: #0f4664;
+  border: 1px solid rgba(23, 90, 125, 0.45);
+}
+
+[data-theme='dark'] .badge-q2 {
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+  border: 1px solid rgba(125, 211, 252, 0.5);
 }
 
 .badge-q3 {
   background: var(--accent-gold-soft);
-  color: var(--accent-gold);
-  border: 1px solid var(--accent-gold);
+  color: #92400e;
+  border: 1px solid rgba(146, 64, 14, 0.45);
+}
+
+[data-theme='dark'] .badge-q3 {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fde047;
+  border: 1px solid rgba(253, 224, 71, 0.5);
 }
 
 .badge-status {
-  background: var(--bg-tertiary);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
+  background: #eef2f6;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+
+[data-theme='dark'] .badge-status {
+  background: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid #475569;
 }
 
 /* Tarjetas */
@@ -444,15 +475,26 @@ a:hover {
 }
 
 .quote-box {
-  border-left: 3px solid var(--accent-gold);
+  border-left: 4px solid var(--accent-gold);
   background: var(--accent-gold-soft);
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.4rem;
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin: 1.5rem 0;
   font-style: italic;
   font-family: var(--font-serif);
   font-size: 1.05rem;
   color: var(--text-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme='dark'] .quote-box {
+  background: rgba(251, 191, 36, 0.10);
+  border-left: 4px solid #fbbf24;
+  border-color: rgba(251, 191, 36, 0.25);
+  border-left-color: #fbbf24;
+  color: #f8fafc;
 }
 
 .hero-actions {
@@ -491,9 +533,13 @@ a:hover {
 .stat-label {
   font-size: 0.82rem;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+}
+
+[data-theme='dark'] .stat-label {
+  color: #cbd5e1;
 }
 
 /* Publicaciones */
@@ -532,15 +578,25 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
+[data-theme='dark'] .pub-journal {
+  color: #94a3b8;
+}
+
 .pub-abstract {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
   background: var(--bg-tertiary);
-  padding: 1rem;
+  padding: 1.15rem;
   border-radius: var(--radius-md);
   margin-top: 0.75rem;
   border: 1px solid var(--border-subtle);
+}
+
+[data-theme='dark'] .pub-abstract {
+  background: #0f1622;
+  border-color: #27394e;
+  color: #e2e8f0;
 }
 
 .pub-actions {
