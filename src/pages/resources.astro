@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { portfolioData } from '../data/portfolioData';
-
 import InstitutionLogo from '../components/InstitutionLogo.astro';
 
-const { professor } = portfolioData;
+const { professor, econometricsWithR } = portfolioData;
 
 const databaseLinks = [
   {
@@ -16,103 +15,132 @@ const databaseLinks = [
   {
     name: "Banco de la República - Estadísticas Económicas",
     url: "https://www.banrep.gov.co/es/estadisticas",
-    desc: "Series de tiempo macroeconómicas, agregados monetarios, inflación y tasa de cambio.",
+    desc: "Series macroeconómicas, agregados monetarios, inflación y tasa de cambio.",
     logo: "banrep"
   },
   {
-    name: "ICFES - Bases de Datos Saber Pro y Saber 11",
+    name: "ICFES - Bases de Datos Saber 11 y Saber Pro",
     url: "https://www.icfes.gov.co/",
-    desc: "Información estandarizada de calidad educativa y rendimiento académico en educación básica y superior.",
+    desc: "Información estandarizada de calidad educativa y rendimiento académico en Colombia.",
     logo: "minciencias"
   },
   {
     name: "FRED - Federal Reserve Economic Data",
     url: "https://fred.stlouisfed.org/",
-    desc: "Cientos de miles de series macroeconómicas y financieras globales.",
+    desc: "Cientos de miles de series macroeconómicas y financieras internacionales.",
     logo: "repec"
-  },
-  {
-    name: "World Bank Open Data",
-    url: "https://data.worldbank.org/",
-    desc: "Indicadores de desarrollo mundial, capital humano y desigualdad socioeconómica.",
-    logo: "scholar"
   }
-];
-
-const softwareTools = [
-  { name: "Stata", logo: "stata", url: "https://www.stata.com/", desc: "Software líder para análisis econométrico y datos de panel." },
-  { name: "R Project & RStudio (Posit)", logo: "r", url: "https://posit.co/download/rstudio-desktop/", desc: "Entorno interactivo para computación estadística y visualización avanzada." },
-  { name: "Python", logo: "python", url: "https://www.python.org/", desc: "Ciencia de datos, web scraping y econometría espacial." },
-  { name: "Overleaf / LaTeX", logo: "scholar", url: "https://www.overleaf.com/", desc: "Redacción científica y tipografía matemática profesional." }
 ];
 ---
 
 <BaseLayout
-  title="Recursos Académicos & Herramientas | Dr. Carlos Giovanni González Espitia"
-  description="Bases de datos macroeconómicas recomendadas, repositorios de investigación y software econométrico."
+  title={`Recursos, Laboratorio R & Datos | ${professor.fullName}`}
+  description="Laboratorio computacional de econometría con R y Stata, fuentes de microdatos oficiales y material de replicación científica."
 >
   <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
-    <div class="section-header">
-      <span class="section-tag">Biblioteca de Enlaces</span>
-      <h1 class="section-title font-serif" style="font-size: 2.75rem;">
-        Recursos & Enlaces de Interés
+    <!-- Header -->
+    <div style="margin-bottom: 3.5rem; max-width: 820px;">
+      <span class="badge badge-status" style="margin-bottom: 0.75rem;">
+        Computational Economics & Data
+      </span>
+      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;">
+        Recursos, Laboratorio R & Datos
       </h1>
-      <p class="section-subtitle" style="max-width: 800px; font-size: 1.15rem;">
-        Colección curada de fuentes primarias de microdatos, repositorios institucionales y plataformas de computación para investigación económica.
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;">
+        Herramientas computacionales para estudiantes e investigadores: tutoriales de econometría en R, fuentes primarias de microdatos y código reproducible.
       </p>
     </div>
 
-    <!-- Databases Grid -->
-    <section style="margin-bottom: 4rem;">
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Bases de Datos & Microdatos</h2>
-        <span class="badge badge-q1">Fuentes Oficiales</span>
+    <!-- 1. R & Stata Lab -->
+    <section id="r-lab" style="margin-bottom: 4.5rem;">
+      <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">R & Stata Lab: Tutoriales & Código</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Módulos computacionales para análisis estadístico reproducible y econometría espacial.
+        </p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 2.5rem;">
+        {econometricsWithR.resources.map((item) => (
+          <div class="card card-highlight" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                {item.tools.map((t) => (
+                  <span class="badge badge-status font-mono" style="font-size: 0.72rem;">{t}</span>
+                ))}
+              </div>
+              <h3 class="font-serif" style="font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+                {item.title}
+              </h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                {item.desc}
+              </p>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--accent-primary); font-weight: 600;">
+              Código disponible para estudiantes
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Script de Demostración Espacial -->
+      <div class="card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <h3 class="font-serif" style="font-size: 1.3rem;">Ejemplo de Script: Modelo Spatial Durbin en R</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Estimación de efectos directos e indirectos (derrames espaciales) de la informalidad sobre homicidios.</p>
+          </div>
+          <span class="badge badge-q2 font-mono" style="font-size: 0.75rem;">R / spatialreg</span>
+        </div>
+
+        <pre style="background: var(--bg-tertiary); padding: 1.25rem 1.5rem; border-radius: var(--radius-md); overflow-x: auto; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; border: 1px solid var(--border-subtle); color: var(--text-primary);">
+<code># 1. Cargar librerias espaciales
+library(sf)          # Geometrias barriales
+library(spdep)       # Matriz de pesos W
+library(spatialreg)  # Modelos SAR, SEM, SDM
+
+# 2. Construir matriz de contiguidad tipo Reina
+vecinos &lt;- poly2nb(cali_barrios, queen = TRUE)
+W &lt;- nb2listw(vecinos, style = "W", zero.policy = TRUE)
+
+# 3. Estimar modelo Spatial Durbin (SDM)
+# Homicidios ~ Informalidad + Desempleo + W*(X)
+modelo_sdm &lt;- lagsarlm(
+  homicidios ~ informalidad + desempleo + educacion,
+  data = cali_barrios,
+  listw = W,
+  Durbin = TRUE,
+  zero.policy = TRUE
+)
+
+# 4. Descomposicion de impactos directos, indirectos y totales
+summary(impacts(modelo_sdm, listw = W, R = 1000))</code>
+        </pre>
+      </div>
+    </section>
+
+    <!-- 2. Data Sources (Microdatos Oficiales) -->
+    <section id="data" style="margin-bottom: 4.5rem;">
+      <div style="margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.85rem;">Microdatos & Repositorios Oficiales</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Fuentes primarias de datos utilizadas en las cátedras de Econometría y proyectos de investigación.
+        </p>
       </div>
 
       <div class="grid-2">
         {databaseLinks.map((db) => (
           <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
             <InstitutionLogo name={db.logo} size={36} />
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-              <div>
-                <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--text-primary);">
-                  {db.name}
-                </h3>
-                <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-                  {db.desc}
-                </p>
-              </div>
-              <div>
-                <a href={db.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                  Acceder al Repositorio →
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Software & Computational Tools -->
-    <section style="margin-bottom: 4rem;">
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Software & Entornos de Trabajo</h2>
-        <span class="badge badge-q2">Herramientas Recomendadas</span>
-      </div>
-
-      <div class="grid-2">
-        {softwareTools.map((tool) => (
-          <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
-            <InstitutionLogo name={tool.logo} size={36} />
             <div style="flex: 1;">
-              <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--text-primary);">
-                {tool.name}
+              <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">
+                {db.name}
               </h3>
-              <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                {tool.desc}
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                {db.desc}
               </p>
-              <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                Descargar / Visitar Sitio Oficial →
+              <a href={db.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <span>Ir al Repositorio Oficial →</span>
               </a>
             </div>
           </div>
@@ -120,24 +148,22 @@ const softwareTools = [
       </div>
     </section>
 
-    <!-- Academic Associations -->
-    <section>
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.75rem;">
-        <h2 class="font-serif" style="font-size: 1.85rem;">Asociaciones Científicas</h2>
-        <span class="badge badge-status">Membresías Activas</span>
-      </div>
-
-      <div class="grid-3">
-        {professor.affiliations.map((aff) => (
-          <div class="card">
-            <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--text-primary);">
-              {aff.name}
-            </h4>
-            <a href={aff.url} target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; font-weight: 600;">
-              Visitar Asociación →
-            </a>
-          </div>
-        ))}
+    <!-- 3. Replication & Open Science -->
+    <section id="replication" class="card" style="padding: 2.5rem; background: var(--bg-card);">
+      <span class="badge badge-q1" style="margin-bottom: 0.5rem;">Open Science & Replicability</span>
+      <h2 class="font-serif" style="font-size: 1.85rem; margin-bottom: 0.75rem;">
+        Replicación Científica & Código Abierto
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.98rem; max-width: 800px; margin-bottom: 1.5rem;">
+        En concordancia con las mejores prácticas de la profesión económica y los requerimientos de revistas arbitradas (Data Availability Statements), los paquetes de replicación (archivos .do de Stata y scripts .R) de nuestras investigaciones publicadas están disponibles para la comunidad académica.
+      </p>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href={`mailto:${professor.contact.institutionalEmail}?subject=Replication%20Data%20Request`} class="btn btn-primary btn-sm">
+          <span>Solicitar Paquete de Replicación</span>
+        </a>
+        <a href="/research#publications" class="btn btn-outline btn-sm">
+          <span>Consultar Artículos Publicados</span>
+        </a>
       </div>
     </section>
   </div>

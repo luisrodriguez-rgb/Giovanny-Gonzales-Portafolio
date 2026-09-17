@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioData } from '../data/portfolioData';
+import InstitutionLogo from '../components/InstitutionLogo.astro';
+
+const { professor, careerMilestones, book, academicProfiles } = portfolioData;
+---
+
+<BaseLayout
+  title={`Trayectoria & Perfiles Académicos | ${professor.fullName}`}
+  description={professor.bio.es}
+>
+  <div class="container" style="padding: 3.5rem 1.5rem 5rem;">
+    <!-- Header de Sección -->
+    <div style="margin-bottom: 3.5rem; max-width: 820px;">
+      <span class="badge badge-status" style="margin-bottom: 0.75rem;" data-lang-es="Trayectoria Profesional" data-lang-en="Academic Background">
+        Trayectoria Profesional
+      </span>
+      <h1 class="font-serif" style="font-size: 2.75rem; line-height: 1.15; margin-bottom: 1rem;">
+        Acerca del Dr. Carlos Giovanni González
+      </h1>
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.75;" data-lang-es={professor.bio.es} data-lang-en={professor.bio.en}>
+        {professor.bio.es}
+      </p>
+    </div>
+
+    <!-- Red de Perfiles Académicos con Contexto -->
+    <section style="margin-bottom: 4.5rem;">
+      <div style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.75rem;">Perfiles Académicos & Registros Oficiales</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Fuentes oficiales externas para verificación de citas bibliométricas, working papers y producción indexada.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        {academicProfiles.map((p) => (
+          <div class="card" style="display: flex; gap: 1.25rem; align-items: flex-start;">
+            {p.name.includes('RePEc') && <InstitutionLogo name="repec" size={36} />}
+            {p.name.includes('Scholar') && <InstitutionLogo name="scholar" size={36} />}
+            {p.name.includes('Icesi') && <InstitutionLogo name="icesi" size={36} />}
+            {p.name.includes('CvLAC') && <InstitutionLogo name="minciencias" size={36} />}
+            {p.name.includes('BanRep') && <InstitutionLogo name="banrep" size={36} />}
+            {p.name.includes('LinkedIn') && <InstitutionLogo name="linkedin" size={36} />}
+
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
+                <h3 style="font-size: 1.15rem; color: var(--text-primary);">{p.name}</h3>
+                <span class="badge badge-status font-mono" style="font-size: 0.72rem;">{p.badge}</span>
+              </div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                {p.description}
+              </p>
+              <a href={p.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <span>Acceder al Registro Oficial →</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Línea de Tiempo Académica -->
+    <section style="margin-bottom: 4.5rem;">
+      <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem;">
+        <h2 class="font-serif" style="font-size: 1.75rem;">Trayectoria Académica & Formación</h2>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Grados doctorales, condecoraciones y recorrido docente universitario en España y Colombia.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; border-left: 2px solid var(--border-subtle); padding-left: 1.5rem; margin-left: 0.5rem;">
+        {careerMilestones.map((m) => (
+          <div style="position: relative;">
+            <div style="position: absolute; left: -1.95rem; top: 0.45rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-primary);"></div>
+            <div class="card" style="padding: 1.25rem 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem;">
+                <h3 style="font-size: 1.1rem; color: var(--text-primary);">{m.role}</h3>
+                <span class="badge badge-status font-mono" style="font-size: 0.75rem;">{m.year}</span>
+              </div>
+              <p style="font-weight: 600; color: var(--accent-primary); font-size: 0.92rem;">
+                {m.institution} • {m.location}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Libros de Texto & Monografías -->
+    <section style="margin-bottom: 4.5rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2.5rem;">
+      <div class="grid-2" style="align-items: center; gap: 2.5rem;">
+        <div>
+          <span class="badge badge-q3" style="margin-bottom: 0.75rem;">Producción Bibliográfica</span>
+          <h2 class="font-serif" style="font-size: 2rem; margin-bottom: 0.75rem;">
+            {book.title}
+          </h2>
+          <p style="font-size: 0.95rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.5rem;">
+            {book.edition} • {book.authors.join(' & ')}
+          </p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem;">
+            {book.publisher} • ISBN: {book.isbn}
+          </p>
+          <p style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+            {book.description}
+          </p>
+          {book.link && (
+            <a href={book.link} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <span>Consultar en Editorial Ecoe →</span>
+            </a>
+          )}
+        </div>
+
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem;">
+          <h3 class="font-serif" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Enfoque & Adopción Docente</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;">
+            Diseñado como manual guía para la toma de decisiones gerenciales frente a ciclos macroeconómicos, inflación, tasa de cambio y políticas fiscales en países en desarrollo.
+          </p>
+          <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;">
+            <li>Adoptado en programas de Economía, Finanzas y MBA.</li>
+            <li>Casos de estudio contextualizados a economías andinas.</li>
+            <li>Capítulos estructurados con aplicaciones analíticas y datos reales.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descarga de CV & Contacto Académico -->
+    <section class="card" style="text-align: center; padding: 3rem 2rem;">
+      <h2 class="font-serif" style="font-size: 2rem; margin-bottom: 0.75rem;">Currículum Vitae Académico</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.75rem; font-size: 1rem;">
+        Para comités editoriales, pares evaluadores, eventos científicos o acreditaciones institucionales, consulte el registro curricular completo.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href={professor.contact.cvlac} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <InstitutionLogo name="minciencias" size={16} />
+          <span>Ver CvLAC MinCiencias</span>
+        </a>
+        <a href={`mailto:${professor.contact.institutionalEmail}`} class="btn btn-outline">
+          <span>Solicitar CV en PDF ({professor.contact.institutionalEmail})</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
